@@ -45,6 +45,8 @@ export async function POST(request: Request) {
     return json({ error: "not_configured", message: "Server is missing DATABASE_URL or SYNC_PASSCODE." }, 503);
   }
   if (!passcodeOk(request.headers.get("x-sync-passcode") ?? "", passcode)) {
+    // slow down password guessing; nothing is read or written before this check passes
+    await new Promise((r) => setTimeout(r, 750));
     return json({ error: "unauthorized", message: "Wrong passcode." }, 401);
   }
 
