@@ -1,0 +1,1549 @@
+{
+  "meta": { "title": "Senior Engineer Roadmap", "totalDays": 140, "totalWeeks": 20 },
+  "phases": [
+    { "id": 1, "name": "Foundations", "weeks": [1, 2, 3, 4], "goal": "Rebuild core DSA patterns, C# fundamentals, system design basics and SQL so every later topic has a solid base." },
+    { "id": 2, "name": "Core Depth", "weeks": [5, 6, 7, 8], "goal": "Go deep on .NET internals, EF Core, ASP.NET Core, Angular essentials and the first classic system designs while DSA moves into trees, heaps and graphs." },
+    { "id": 3, "name": "Advanced Stack", "weeks": [9, 10, 11, 12], "goal": "Master advanced Next.js and Angular, Redis, Elasticsearch, Kubernetes and dynamic programming while continuing weekly system designs." },
+    { "id": 4, "name": "Architecture and Scale", "weeks": [13, 14, 15, 16], "goal": "Own senior-level architecture topics: clean architecture, CQRS/event sourcing, payments, CI/CD, IaC and observability, plus hard DSA patterns." },
+    { "id": 5, "name": "Interview Simulation", "weeks": [17, 18, 19, 20], "goal": "Run full mock loops, patch weak spots, polish stories and arrive rested and confident on interview day." }
+  ],
+  "weeks": [
+    { "week": 1, "title": "Arrays, C# and Fundamentals", "goal": "Restart DSA with hashing, refresh C# and OOP, learn the system design interview framework and build a story inventory." },
+    { "week": 2, "title": "Sliding Window, Collections and Caching", "goal": "Learn two pointers/sliding window/stack, .NET collections and generics, caching strategies, React basics and indexing." },
+    { "week": 3, "title": "Binary Search, LINQ and Docker", "goal": "Cover binary search and linked lists, LINQ and delegates, Angular standalone components, load balancing and Docker basics." },
+    { "week": 4, "title": "Trees, Async and DB Scaling", "goal": "Start trees, master async/await and React hooks, learn database scaling and build multi-container setups." },
+    { "week": 5, "title": "Tries, GC and Message Queues", "goal": "Finish core tree problems with tries, understand .NET memory/GC, Angular DI, queues and transaction isolation." },
+    { "week": 6, "title": "Heaps, EF Core and URL Shortener", "goal": "Learn heaps and backtracking, EF Core deeply, Next.js App Router, Angular routing and design a URL shortener." },
+    { "week": 7, "title": "Graphs, ASP.NET Core and Rate Limiter", "goal": "Start graphs, master the ASP.NET Core pipeline, read query plans, design a rate limiter and learn RSC." },
+    { "week": 8, "title": "Auth, Consistency and Midpoint Mock", "goal": "Cover topological sort, auth, Angular forms, distributed consistency, leadership stories and a first timed mock." },
+    { "week": 9, "title": "Union-Find, Dapper and Chat", "goal": "Learn union-find and Dijkstra, Dapper/minimal APIs, Next.js rendering, RxJS, 1D DP and design a chat system." },
+    { "week": 10, "title": "DP, Redis and News Feed", "goal": "Continue DP and intervals, go deep on Redis and Next.js caching, SignalR/background services and design a news feed." },
+    { "week": 11, "title": "2D DP, Polly and Kubernetes", "goal": "Start 2D DP, resilience with Polly, Angular change detection/signals, Kubernetes core and a notification system." },
+    { "week": 12, "title": "Testing, Elasticsearch and NgRx", "goal": "Finish DP, master .NET testing, Elasticsearch, NgRx, K8s config/probes and design typeahead search." },
+    { "week": 13, "title": "Clean Architecture and CQRS", "goal": "Learn greedy and bit manipulation, clean architecture with MediatR, CQRS/event sourcing, Next.js auth and Helm." },
+    { "week": 14, "title": "Performance, Payments and CI/CD", "goal": "Re-solve hard array problems, tune .NET performance, design payments, Angular SSR, GitHub Actions and DB tradeoffs." },
+    { "week": 15, "title": "Hard Patterns, Ticketing and Terraform", "goal": "Tackle hard heap/graph problems, streaming in Next.js, ticketing design, Terraform/AWS, MassTransit and Angular testing." },
+    { "week": 16, "title": "Observability and Deep Dives", "goal": "Run a second timed mock, add observability, design file storage, finish Next.js, advanced C# and resume defense." },
+    { "week": 17, "title": "Mock Designs and Re-solve Sprints", "goal": "Re-solve trees/graphs/DP, learn deployment strategies, mock ride-sharing design and run .NET and behavioral mocks." },
+    { "week": 18, "title": "Rapid-fire and Mock Designs", "goal": "Run a third timed mock, design video streaming and a job scheduler, and drill frontend and SQL rapid-fire questions." },
+    { "week": 19, "title": "Full Mock Loops", "goal": "Simulate complete interview loops across coding, design, behavioral and .NET, then patch weak spots." },
+    { "week": 20, "title": "Final Polish and Rest", "goal": "Final mocks, negotiation prep, cheat sheets, logistics and a full rest day before interviews." }
+  ],
+  "days": [
+    {
+      "day": 1, "week": 1, "title": "Arrays and Hashing I", "track": "dsa", "hours": 2.5,
+      "summary": "Hash maps and sets give O(1) lookups and are the first tool to reach for when a brute force is O(n^2). Most Blind75 easy questions reduce to a frequency count or a seen-set.",
+      "tasks": [
+        { "text": "Study hash map/set lookup cost and the frequency-count pattern (NeetCode Arrays and Hashing intro)", "kind": "learn" },
+        { "text": "LeetCode 217 - Contains Duplicate (Easy)", "kind": "practice" },
+        { "text": "LeetCode 1 - Two Sum (Easy)", "kind": "practice" },
+        { "text": "LeetCode 242 - Valid Anagram (Easy)", "kind": "practice" }
+      ],
+      "resources": [ "NeetCode arrays and hashing playlist", "hash map time complexity explained", "Two Sum hash map solution C#" ]
+    },
+    {
+      "day": 2, "week": 1, "title": "C# Fundamentals and OOP Refresher", "track": "dotnet", "hours": 2.5,
+      "summary": "Senior .NET interviews still open with value vs reference types, boxing and OOP/SOLID questions. Crisp answers here set the tone for the rest of the loop.",
+      "tasks": [
+        { "text": "Review value vs reference types, struct vs class, boxing/unboxing, ref/out/in parameters", "kind": "learn" },
+        { "text": "Revisit OOP pillars and SOLID with C# examples; interface vs abstract class tradeoffs", "kind": "learn" },
+        { "text": "Build a console Parking Lot system in C# using SOLID interfaces and unit-testable classes", "kind": "build" },
+        { "text": "Write 10 flashcards: record vs class, sealed, static, virtual/override, new modifier, readonly struct", "kind": "review" }
+      ],
+      "resources": [ "C# value types vs reference types boxing", "SOLID principles C# examples", "C# interview questions senior" ]
+    },
+    {
+      "day": 3, "week": 1, "title": "System Design Fundamentals", "track": "sysdesign", "hours": 2.5,
+      "summary": "System design rounds reward a structured approach: clarify requirements, estimate, sketch, then deep dive. Learn the building blocks (DNS, HTTP, scaling, latency numbers) so you can reason out loud.",
+      "tasks": [
+        { "text": "Learn client-server model, DNS resolution, HTTP/HTTPS, TCP vs UDP basics", "kind": "learn" },
+        { "text": "Learn vertical vs horizontal scaling, stateless services and latency numbers every engineer should know", "kind": "learn" },
+        { "text": "Memorize the 4-step framework: requirements, estimation, high-level design, deep dive", "kind": "practice" },
+        { "text": "Draw your current production architecture (services, SQL, Redis, RabbitMQ, ES) in Excalidraw", "kind": "build" }
+      ],
+      "resources": [ "system design interview framework step by step", "DNS resolution explained", "latency numbers every programmer should know" ]
+    },
+    {
+      "day": 4, "week": 1, "title": "Arrays and Hashing II", "track": "dsa", "hours": 2.5,
+      "summary": "Grouping, bucketing and prefix/suffix products are core Medium patterns. They teach you to trade memory for time and to spot O(n) solutions.",
+      "tasks": [
+        { "text": "LeetCode 49 - Group Anagrams (Medium)", "kind": "practice" },
+        { "text": "LeetCode 347 - Top K Frequent Elements (Medium) - solve with bucket sort", "kind": "practice" },
+        { "text": "LeetCode 238 - Product of Array Except Self (Medium)", "kind": "practice" },
+        { "text": "LeetCode 125 - Valid Palindrome (Easy) - intro to two pointers", "kind": "practice" }
+      ],
+      "resources": [ "Group Anagrams NeetCode", "Top K frequent elements bucket sort", "Product of array except self prefix suffix" ]
+    },
+    {
+      "day": 5, "week": 1, "title": "SQL Joins and Window Functions", "track": "database", "hours": 2.5,
+      "summary": "Many backend loops include a live SQL question. Joins, GROUP BY/HAVING and window functions cover most of them.",
+      "tasks": [
+        { "text": "Review inner/left/right/full/cross/self joins, GROUP BY and HAVING", "kind": "learn" },
+        { "text": "LeetCode SQL 181 - Employees Earning More Than Their Managers and 176 - Second Highest Salary", "kind": "practice" },
+        { "text": "Learn window functions: ROW_NUMBER, RANK, DENSE_RANK, LAG/LEAD, running totals", "kind": "learn" },
+        { "text": "LeetCode SQL 185 - Department Top Three Salaries (Hard) using DENSE_RANK", "kind": "practice" }
+      ],
+      "resources": [ "SQL joins visual explanation", "SQL window functions tutorial", "LeetCode SQL 50 study plan" ]
+    },
+    {
+      "day": 6, "week": 1, "title": "Story Inventory and Resume Audit", "track": "behavioral", "hours": 2,
+      "summary": "Senior interviews weigh ownership and impact as much as code. Building a story bank early lets you rehearse all 20 weeks instead of cramming.",
+      "tasks": [
+        { "text": "Audit resume: rewrite each bullet as action + technology + measurable impact", "kind": "review" },
+        { "text": "List 8 stories: outbox rollout, team lead, incident, conflict, mentoring, failure, tradeoff, deadline", "kind": "build" },
+        { "text": "Write 2 full STAR stories: a technical decision and a team conflict", "kind": "practice" },
+        { "text": "Research what senior means at European/remote companies (ownership, async writing, autonomy)", "kind": "learn" }
+      ],
+      "resources": [ "STAR method senior engineer interview", "senior software engineer resume bullet examples", "remote company engineering interview process" ]
+    },
+    {
+      "day": 7, "week": 1, "title": "Week 1 Review", "track": "review", "hours": 2,
+      "summary": "Active recall beats rereading. Re-solve without looking, then summarize what you learned in your own words.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 1, 49 and 238 blind with a 20-minute timer each", "kind": "review" },
+        { "text": "Summarize the system design framework and scaling basics in 5 bullets", "kind": "review" },
+        { "text": "Tell one STAR story out loud in under 2 minutes and record it", "kind": "review" }
+      ],
+      "resources": [ "spaced repetition coding interview", "how to review leetcode problems effectively" ]
+    },
+    {
+      "day": 8, "week": 2, "title": "Two Pointers and Sliding Window", "track": "dsa", "hours": 2.5,
+      "summary": "Two pointers and sliding windows turn nested loops into O(n). Know fixed vs variable windows and when to shrink.",
+      "tasks": [
+        { "text": "LeetCode 15 - 3Sum (Medium) - focus on skipping duplicates", "kind": "practice" },
+        { "text": "LeetCode 11 - Container With Most Water (Medium)", "kind": "practice" },
+        { "text": "LeetCode 121 - Best Time to Buy and Sell Stock (Easy)", "kind": "practice" },
+        { "text": "LeetCode 3 - Longest Substring Without Repeating Characters (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "two pointers technique leetcode", "variable size sliding window template", "3Sum NeetCode explanation" ]
+    },
+    {
+      "day": 9, "week": 2, "title": ".NET Collections and Generics", "track": "dotnet", "hours": 2.5,
+      "summary": "Interviewers probe whether you know how List, Dictionary and HashSet work internally and which interface to expose. Generics, constraints and variance are classic senior questions.",
+      "tasks": [
+        { "text": "Learn List/Dictionary/HashSet internals: resizing, hashing, collisions, GetHashCode/Equals contract", "kind": "learn" },
+        { "text": "Compare IEnumerable vs ICollection vs IList vs IReadOnlyList vs IQueryable", "kind": "learn" },
+        { "text": "Learn generic constraints, covariance (out) and contravariance (in) with examples", "kind": "learn" },
+        { "text": "Build a generic LRU cache in C# using Dictionary + LinkedList with unit tests", "kind": "build" }
+      ],
+      "resources": [ "C# Dictionary internals how it works", "covariance contravariance C# explained", "IEnumerable vs IQueryable C#" ]
+    },
+    {
+      "day": 10, "week": 2, "title": "Caching Strategies", "track": "sysdesign", "hours": 2.5,
+      "summary": "Caching appears in nearly every design. Know the patterns, eviction policies and failure modes like stampede and stale data.",
+      "tasks": [
+        { "text": "Learn cache-aside, read-through, write-through, write-behind and their consistency tradeoffs", "kind": "learn" },
+        { "text": "Learn eviction (LRU/LFU/TTL), cache stampede, thundering herd and invalidation strategies", "kind": "learn" },
+        { "text": "Learn CDN and edge caching, HTTP cache headers (Cache-Control, ETag)", "kind": "learn" },
+        { "text": "Design on paper: add a Redis cache layer to a product catalog API with invalidation on update", "kind": "practice" }
+      ],
+      "resources": [ "cache aside vs write through", "cache stampede solutions", "CDN how it works system design" ]
+    },
+    {
+      "day": 11, "week": 2, "title": "React Fundamentals Refresher", "track": "nextjs", "hours": 2.5,
+      "summary": "Next.js questions assume solid React. Refresh rendering, state, props and reconciliation before moving to the App Router.",
+      "tasks": [
+        { "text": "Review JSX, components, props, state, one-way data flow and lifting state up", "kind": "learn" },
+        { "text": "Learn reconciliation, virtual DOM, keys and why index keys cause bugs", "kind": "learn" },
+        { "text": "Build a React + TypeScript todo app (Vite) with filters and controlled inputs", "kind": "build" },
+        { "text": "Write answers to: what triggers a re-render and how to prevent unnecessary ones", "kind": "review" }
+      ],
+      "resources": [ "React reconciliation explained", "React docs thinking in React", "React re-render explained" ]
+    },
+    {
+      "day": 12, "week": 2, "title": "Stack Patterns", "track": "dsa", "hours": 2.5,
+      "summary": "Stacks solve matching, parsing and next-greater-element problems. The monotonic stack is a high-yield interview pattern.",
+      "tasks": [
+        { "text": "LeetCode 20 - Valid Parentheses (Easy)", "kind": "practice" },
+        { "text": "LeetCode 155 - Min Stack (Medium)", "kind": "practice" },
+        { "text": "LeetCode 150 - Evaluate Reverse Polish Notation (Medium)", "kind": "practice" },
+        { "text": "LeetCode 739 - Daily Temperatures (Medium) - monotonic stack", "kind": "practice" }
+      ],
+      "resources": [ "monotonic stack pattern", "Daily temperatures NeetCode", "stack problems leetcode patterns" ]
+    },
+    {
+      "day": 13, "week": 2, "title": "Indexing Deep Dive", "track": "database", "hours": 2.5,
+      "summary": "Index questions separate seniors from juniors. Know B-trees, clustered vs nonclustered, covering and composite index ordering.",
+      "tasks": [
+        { "text": "Learn B-tree structure, clustered vs nonclustered, covering indexes with INCLUDE", "kind": "learn" },
+        { "text": "Learn composite index column order, selectivity, and Postgres GIN/BRIN/partial indexes", "kind": "learn" },
+        { "text": "Build: seed 1M rows in Postgres (Docker) and compare EXPLAIN ANALYZE before/after indexes", "kind": "build" },
+        { "text": "Write notes: when an index hurts (writes, low selectivity, functions on columns)", "kind": "review" }
+      ],
+      "resources": [ "use the index luke", "clustered vs nonclustered index", "Postgres EXPLAIN ANALYZE tutorial" ]
+    },
+    {
+      "day": 14, "week": 2, "title": "Week 2 Review", "track": "review", "hours": 2,
+      "summary": "Lock in sliding window and stack patterns and the caching vocabulary. Redo anything that felt shaky.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 3, 15 and 739 blind", "kind": "review" },
+        { "text": "Write a one-page cheat sheet on caching patterns and eviction", "kind": "review" },
+        { "text": "Explain clustered vs nonclustered indexes out loud in 90 seconds", "kind": "review" }
+      ],
+      "resources": [ "sliding window cheat sheet", "caching system design summary" ]
+    },
+    {
+      "day": 15, "week": 3, "title": "Binary Search", "track": "dsa", "hours": 2.5,
+      "summary": "Binary search applies to sorted arrays and to answer spaces (search on the result). A single reliable template prevents off-by-one bugs.",
+      "tasks": [
+        { "text": "LeetCode 704 - Binary Search (Easy) - memorize one template", "kind": "practice" },
+        { "text": "LeetCode 74 - Search a 2D Matrix (Medium)", "kind": "practice" },
+        { "text": "LeetCode 875 - Koko Eating Bananas (Medium) - binary search on answer", "kind": "practice" },
+        { "text": "LeetCode 33 - Search in Rotated Sorted Array (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "binary search template", "binary search on answer pattern", "search in rotated sorted array explanation" ]
+    },
+    {
+      "day": 16, "week": 3, "title": "LINQ, Delegates and Lambdas", "track": "dotnet", "hours": 2.5,
+      "summary": "LINQ is daily .NET work and interviewers test deferred execution and IQueryable translation. Delegates and events underpin LINQ and many frameworks.",
+      "tasks": [
+        { "text": "Learn deferred vs immediate execution, multiple enumeration pitfalls, yield return", "kind": "learn" },
+        { "text": "Learn Func/Action/Predicate, events, closures, and expression trees behind IQueryable", "kind": "learn" },
+        { "text": "Solve 10 LINQ exercises: GroupBy, Join, SelectMany, Aggregate, Zip, ToLookup", "kind": "practice" },
+        { "text": "Build a custom LINQ-style extension method WhereIf and a lazy Batch(n) iterator", "kind": "build" }
+      ],
+      "resources": [ "LINQ deferred execution explained", "C# expression trees IQueryable", "C# delegates and events tutorial" ]
+    },
+    {
+      "day": 17, "week": 3, "title": "Angular Components and Standalone", "track": "angular", "hours": 2.5,
+      "summary": "Modern Angular is standalone-first with signals-based inputs and new control flow. Interviewers expect you to know both NgModules and the new model.",
+      "tasks": [
+        { "text": "Learn standalone components vs NgModules, lifecycle hooks, content projection", "kind": "learn" },
+        { "text": "Learn input()/output() signal APIs, model(), and @if/@for/@switch control flow", "kind": "learn" },
+        { "text": "Build an Angular 17+ standalone app: product list with filter, child components, @for with track", "kind": "build" },
+        { "text": "Write notes: ngOnChanges vs ngOnInit vs ngAfterViewInit and when each fires", "kind": "review" }
+      ],
+      "resources": [ "Angular standalone components tutorial", "Angular signal inputs", "Angular new control flow @for track" ]
+    },
+    {
+      "day": 18, "week": 3, "title": "Load Balancing and Proxies", "track": "sysdesign", "hours": 2.5,
+      "summary": "Load balancers are in every diagram, so know L4 vs L7, algorithms and health checks. Consistent hashing returns in caching and sharding questions.",
+      "tasks": [
+        { "text": "Learn L4 vs L7 load balancing, round robin, least connections, health checks, sticky sessions", "kind": "learn" },
+        { "text": "Learn reverse proxy vs API gateway vs service mesh (NGINX, YARP, Envoy)", "kind": "learn" },
+        { "text": "Learn consistent hashing with virtual nodes and where it is used", "kind": "learn" },
+        { "text": "Design: highly available API tier with LB failover across two availability zones", "kind": "practice" }
+      ],
+      "resources": [ "L4 vs L7 load balancer", "consistent hashing explained", "API gateway vs reverse proxy" ]
+    },
+    {
+      "day": 19, "week": 3, "title": "Linked List I", "track": "dsa", "hours": 2.5,
+      "summary": "Linked list problems test pointer discipline. Draw nodes before coding and master fast/slow pointers.",
+      "tasks": [
+        { "text": "LeetCode 206 - Reverse Linked List (Easy) - iterative and recursive", "kind": "practice" },
+        { "text": "LeetCode 21 - Merge Two Sorted Lists (Easy)", "kind": "practice" },
+        { "text": "LeetCode 141 - Linked List Cycle (Easy) - Floyd fast/slow", "kind": "practice" },
+        { "text": "LeetCode 143 - Reorder List (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "reverse linked list iterative", "Floyd cycle detection", "Reorder list NeetCode" ]
+    },
+    {
+      "day": 20, "week": 3, "title": "Docker Fundamentals", "track": "devops", "hours": 2.5,
+      "summary": "Docker is assumed knowledge for senior backend roles. Understand images, layers and caching, not just docker run.",
+      "tasks": [
+        { "text": "Learn images vs containers, layers and build cache, volumes, networks", "kind": "learn" },
+        { "text": "Learn Dockerfile instructions: FROM, COPY, RUN, ENTRYPOINT vs CMD, ARG vs ENV", "kind": "learn" },
+        { "text": "Build: Dockerize a .NET 8 Web API and run it with port mapping and env vars", "kind": "build" },
+        { "text": "Inspect layers with docker history and reorder Dockerfile to maximize cache hits", "kind": "practice" }
+      ],
+      "resources": [ "Docker layers and caching explained", "Dockerize ASP.NET Core 8", "ENTRYPOINT vs CMD Docker" ]
+    },
+    {
+      "day": 21, "week": 3, "title": "Week 3 Review", "track": "review", "hours": 2,
+      "summary": "Consolidate binary search, linked lists, LINQ and Docker. Rehearse explanations, not just code.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 33, 875 and 143 blind", "kind": "review" },
+        { "text": "Explain deferred execution and IQueryable vs IEnumerable out loud", "kind": "review" },
+        { "text": "Summarize LB algorithms and consistent hashing in a diagram", "kind": "review" },
+        { "text": "Update your mistake log with patterns you missed this week", "kind": "review" }
+      ],
+      "resources": [ "binary search common mistakes", "how to keep a leetcode mistake log" ]
+    },
+    {
+      "day": 22, "week": 4, "title": "Linked List II and Tree Basics", "track": "dsa", "hours": 2.5,
+      "summary": "Finish key linked list mediums and begin trees with recursion. Recursive thinking on trees is the gateway to graphs and DP.",
+      "tasks": [
+        { "text": "LeetCode 19 - Remove Nth Node From End of List (Medium)", "kind": "practice" },
+        { "text": "LeetCode 2 - Add Two Numbers (Medium)", "kind": "practice" },
+        { "text": "LeetCode 226 - Invert Binary Tree (Easy)", "kind": "practice" },
+        { "text": "LeetCode 104 - Maximum Depth of Binary Tree (Easy) - recursive and BFS", "kind": "practice" }
+      ],
+      "resources": [ "remove nth node from end two pointers", "binary tree recursion basics", "tree traversal DFS BFS" ]
+    },
+    {
+      "day": 23, "week": 4, "title": "Async/Await Deep Dive", "track": "dotnet", "hours": 3,
+      "summary": "Async is the most common senior .NET topic: state machines, deadlocks, ConfigureAwait and ValueTask. Being able to explain what the compiler generates is a strong signal.",
+      "tasks": [
+        { "text": "Learn the async state machine, SynchronizationContext, ConfigureAwait(false), thread pool", "kind": "learn" },
+        { "text": "Learn Task vs ValueTask, .Result/.Wait deadlocks, async void, CancellationToken propagation", "kind": "learn" },
+        { "text": "Build a parallel HTTP fetcher with Task.WhenAll, SemaphoreSlim throttling and cancellation", "kind": "build" },
+        { "text": "Learn System.Threading.Channels and Parallel.ForEachAsync; note when to use each", "kind": "learn" }
+      ],
+      "resources": [ "async await state machine C# explained", "ConfigureAwait FAQ Stephen Toub", "C# Channels producer consumer" ]
+    },
+    {
+      "day": 24, "week": 4, "title": "React Hooks Deep Dive", "track": "nextjs", "hours": 2.5,
+      "summary": "Hooks questions probe effects, dependencies and memoization. Stale closures and effect cleanup are common traps.",
+      "tasks": [
+        { "text": "Learn useState, useEffect dependencies and cleanup, useRef, useReducer, useContext", "kind": "learn" },
+        { "text": "Learn useMemo/useCallback/React.memo and when memoization is wasted", "kind": "learn" },
+        { "text": "Build custom hooks useDebounce and useFetch with abort on unmount", "kind": "build" },
+        { "text": "Write an explanation of stale closures with a broken and fixed example", "kind": "review" }
+      ],
+      "resources": [ "useEffect complete guide", "React stale closure hooks", "when to use useMemo useCallback" ]
+    },
+    {
+      "day": 25, "week": 4, "title": "Database Scaling", "track": "sysdesign", "hours": 2.5,
+      "summary": "Scaling the data tier is the heart of most designs. Know replication, partitioning, sharding keys and back-of-envelope estimates.",
+      "tasks": [
+        { "text": "Learn leader-follower and multi-leader replication, read replicas and replication lag", "kind": "learn" },
+        { "text": "Learn partitioning vs sharding, shard key choice, hot partitions, resharding", "kind": "learn" },
+        { "text": "Practice back-of-envelope estimation: QPS, storage and bandwidth for 10M DAU", "kind": "practice" },
+        { "text": "Design: shard a 1B-row orders table and explain the query patterns it supports", "kind": "practice" }
+      ],
+      "resources": [ "database sharding explained", "database replication system design", "back of envelope estimation system design" ]
+    },
+    {
+      "day": 26, "week": 4, "title": "Trees: DFS and BFS", "track": "dsa", "hours": 2.5,
+      "summary": "Tree DFS returning values up the call stack and BFS by level are the two essential tree templates.",
+      "tasks": [
+        { "text": "LeetCode 543 - Diameter of Binary Tree (Easy)", "kind": "practice" },
+        { "text": "LeetCode 110 - Balanced Binary Tree (Easy)", "kind": "practice" },
+        { "text": "LeetCode 102 - Binary Tree Level Order Traversal (Medium)", "kind": "practice" },
+        { "text": "LeetCode 199 - Binary Tree Right Side View (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "diameter of binary tree explanation", "BFS level order traversal queue", "NeetCode trees playlist" ]
+    },
+    {
+      "day": 27, "week": 4, "title": "Multi-stage Builds and Compose", "track": "devops", "hours": 2.5,
+      "summary": "Small, secure images and reproducible local stacks are expected from seniors. Compose mirrors the dependencies of your microservices.",
+      "tasks": [
+        { "text": "Build a multi-stage Dockerfile for .NET 8 with non-root user and chiseled runtime image", "kind": "build" },
+        { "text": "Build docker-compose with API + Postgres + Redis + RabbitMQ using healthchecks and depends_on", "kind": "build" },
+        { "text": "Add .dockerignore, env files and named volumes; compare image sizes before/after", "kind": "practice" },
+        { "text": "Write notes: how to keep secrets out of images and build args", "kind": "review" }
+      ],
+      "resources": [ "multi-stage Docker build .NET 8", "docker compose healthcheck depends_on", "chiseled ubuntu containers .NET" ]
+    },
+    {
+      "day": 28, "week": 4, "title": "Week 4 Review", "track": "review", "hours": 2,
+      "summary": "Phase 1 checkpoint. Confirm you can solve easy/medium array, stack, list and tree problems and explain async and scaling.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 102, 543 and 19 blind", "kind": "review" },
+        { "text": "Explain async/await deadlocks and ConfigureAwait out loud in 2 minutes", "kind": "review" },
+        { "text": "Write a Phase 1 summary: strongest and weakest areas, adjust next phase focus", "kind": "review" }
+      ],
+      "resources": [ "how to self assess coding interview readiness", "blind 75 progress tracker" ]
+    },
+    {
+      "day": 29, "week": 5, "title": "Trees: BST and Subtrees", "track": "dsa", "hours": 2.5,
+      "summary": "BST properties enable O(log n) reasoning and in-order traversal tricks. Validation and LCA are interview favorites.",
+      "tasks": [
+        { "text": "LeetCode 572 - Subtree of Another Tree (Easy)", "kind": "practice" },
+        { "text": "LeetCode 235 - Lowest Common Ancestor of a BST (Medium)", "kind": "practice" },
+        { "text": "LeetCode 98 - Validate Binary Search Tree (Medium)", "kind": "practice" },
+        { "text": "LeetCode 230 - Kth Smallest Element in a BST (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "validate BST min max bounds", "LCA of BST explanation", "inorder traversal iterative stack" ]
+    },
+    {
+      "day": 30, "week": 5, "title": "Memory Management and GC", "track": "dotnet", "hours": 3,
+      "summary": "Understanding the GC, generations and allocation-free APIs shows you can fix production performance issues. Expect questions on IDisposable and Span.",
+      "tasks": [
+        { "text": "Learn stack vs heap, GC generations, LOH/POH, workstation vs server GC", "kind": "learn" },
+        { "text": "Learn IDisposable, using, finalizers, Dispose pattern and IAsyncDisposable", "kind": "learn" },
+        { "text": "Learn Span<T>, Memory<T>, stackalloc and ArrayPool; rewrite a string parser with Span", "kind": "build" },
+        { "text": "Use dotnet-counters and dotnet-gcdump to find a leak in an event-handler sample app", "kind": "practice" }
+      ],
+      "resources": [ ".NET garbage collector generations explained", "Span T C# tutorial", "dotnet-counters memory leak" ]
+    },
+    {
+      "day": 31, "week": 5, "title": "Angular Dependency Injection", "track": "angular", "hours": 2.5,
+      "summary": "Angular DI is hierarchical and very different from ASP.NET Core DI. Interviewers love asking where a service instance lives.",
+      "tasks": [
+        { "text": "Learn hierarchical injectors, providedIn root, component-level providers, inject()", "kind": "learn" },
+        { "text": "Learn InjectionToken, useFactory/useValue/useExisting and multi providers", "kind": "learn" },
+        { "text": "Build HttpClient services with functional interceptors for auth token and error handling", "kind": "build" },
+        { "text": "Write notes comparing Angular DI with ASP.NET Core DI lifetimes", "kind": "review" }
+      ],
+      "resources": [ "Angular hierarchical dependency injection", "Angular functional interceptors", "Angular InjectionToken useFactory" ]
+    },
+    {
+      "day": 32, "week": 5, "title": "Message Queues and Async Processing", "track": "sysdesign", "hours": 2.5,
+      "summary": "Queues decouple services and absorb spikes, but bring delivery semantics and ordering problems. Your RabbitMQ experience is a strength here.",
+      "tasks": [
+        { "text": "Learn queue vs pub/sub, at-most/at-least/exactly-once, idempotent consumers, DLQ", "kind": "learn" },
+        { "text": "Compare RabbitMQ exchanges/queues with Kafka partitions/consumer groups/offsets", "kind": "learn" },
+        { "text": "Learn backpressure, ordering guarantees and poison message handling", "kind": "learn" },
+        { "text": "Design an order processing pipeline with retries, DLQ and idempotency keys", "kind": "practice" }
+      ],
+      "resources": [ "RabbitMQ vs Kafka architecture", "idempotent consumer pattern", "dead letter queue explained" ]
+    },
+    {
+      "day": 33, "week": 5, "title": "Tries and Tree Construction", "track": "dsa", "hours": 3,
+      "summary": "Tries power prefix search and autocomplete. Tree construction and max path sum are classic hard-ish tree problems.",
+      "tasks": [
+        { "text": "LeetCode 208 - Implement Trie (Prefix Tree) (Medium)", "kind": "practice" },
+        { "text": "LeetCode 211 - Design Add and Search Words Data Structure (Medium)", "kind": "practice" },
+        { "text": "LeetCode 105 - Construct Binary Tree from Preorder and Inorder Traversal (Medium)", "kind": "practice" },
+        { "text": "LeetCode 124 - Binary Tree Maximum Path Sum (Hard)", "kind": "practice" }
+      ],
+      "resources": [ "trie data structure explained", "construct binary tree preorder inorder", "binary tree maximum path sum NeetCode" ]
+    },
+    {
+      "day": 34, "week": 5, "title": "Transactions and Isolation Levels", "track": "database", "hours": 2.5,
+      "summary": "Isolation levels and concurrency anomalies come up whenever money or inventory is involved. Know how Postgres MVCC differs from SQL Server locking.",
+      "tasks": [
+        { "text": "Learn ACID and read anomalies: dirty, non-repeatable, phantom reads, lost update, write skew", "kind": "learn" },
+        { "text": "Learn isolation levels, Postgres MVCC vs SQL Server locking and RCSI/snapshot", "kind": "learn" },
+        { "text": "Reproduce a lost update in two psql sessions, then fix with SELECT FOR UPDATE", "kind": "build" },
+        { "text": "Implement optimistic concurrency with rowversion/xmin in EF Core and handle conflicts", "kind": "practice" }
+      ],
+      "resources": [ "transaction isolation levels explained", "Postgres MVCC explained", "optimistic vs pessimistic locking" ]
+    },
+    {
+      "day": 35, "week": 5, "title": "Week 5 Review", "track": "review", "hours": 2,
+      "summary": "Review trees, GC and isolation levels. These are high-frequency senior topics.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 98, 105 and 208 blind", "kind": "review" },
+        { "text": "Explain GC generations and Span<T> benefits out loud", "kind": "review" },
+        { "text": "Draw a table of isolation levels vs anomalies from memory", "kind": "review" }
+      ],
+      "resources": [ "isolation levels anomalies table", "tree problems pattern summary" ]
+    },
+    {
+      "day": 36, "week": 6, "title": "Heap and Priority Queue", "track": "dsa", "hours": 2.5,
+      "summary": "Heaps solve top-k, streaming and scheduling problems in O(n log k). In C# use PriorityQueue<TElement, TPriority>.",
+      "tasks": [
+        { "text": "LeetCode 703 - Kth Largest Element in a Stream (Easy)", "kind": "practice" },
+        { "text": "LeetCode 1046 - Last Stone Weight (Easy)", "kind": "practice" },
+        { "text": "LeetCode 973 - K Closest Points to Origin (Medium)", "kind": "practice" },
+        { "text": "LeetCode 215 - Kth Largest Element in an Array (Medium) - heap and quickselect", "kind": "practice" }
+      ],
+      "resources": [ "heap priority queue explained", "C# PriorityQueue TElement TPriority", "quickselect algorithm" ]
+    },
+    {
+      "day": 37, "week": 6, "title": "EF Core Essentials", "track": "dotnet", "hours": 3,
+      "summary": "EF Core questions focus on change tracking, N+1 and generated SQL. Seniors are expected to know when EF is the wrong tool.",
+      "tasks": [
+        { "text": "Learn DbContext lifetime, change tracking, AsNoTracking, eager/lazy/explicit loading, N+1", "kind": "learn" },
+        { "text": "Build an EF Core 8 + Postgres API with migrations, owned types and a split query", "kind": "build" },
+        { "text": "Enable SQL logging and fix an N+1 query; add a compiled query and compare timings", "kind": "practice" },
+        { "text": "Learn ExecuteUpdate/ExecuteDelete bulk ops, global query filters and interceptors", "kind": "learn" }
+      ],
+      "resources": [ "EF Core performance tips", "EF Core change tracking explained", "EF Core N+1 problem" ]
+    },
+    {
+      "day": 38, "week": 6, "title": "Next.js App Router and Layouts", "track": "nextjs", "hours": 2.5,
+      "summary": "The App Router is the default in modern Next.js. Know file conventions, nested layouts and special files.",
+      "tasks": [
+        { "text": "Learn app directory routing, layouts vs templates, loading.tsx, error.tsx, not-found.tsx", "kind": "learn" },
+        { "text": "Learn route groups, dynamic segments, catch-all, parallel and intercepting routes", "kind": "learn" },
+        { "text": "Build a Next.js 15 dashboard with nested layouts, a route group and a dynamic [id] page", "kind": "build" },
+        { "text": "Write notes comparing Pages Router getServerSideProps with App Router equivalents", "kind": "review" }
+      ],
+      "resources": [ "Next.js App Router tutorial", "Next.js parallel and intercepting routes", "Next.js layouts vs templates" ]
+    },
+    {
+      "day": 39, "week": 6, "title": "Design: URL Shortener", "track": "sysdesign", "hours": 2.5,
+      "summary": "The URL shortener is the classic warm-up design and tests ID generation, caching and read-heavy scaling.",
+      "tasks": [
+        { "text": "Gather requirements and estimate: 100M URLs/month, read:write ratio, storage for 5 years", "kind": "practice" },
+        { "text": "Compare ID generation: base62 counter, hashing with collision handling, key generation service", "kind": "learn" },
+        { "text": "Design data model, Redis cache for redirects, 301 vs 302 and analytics pipeline", "kind": "practice" },
+        { "text": "Write a one-page design doc and present it out loud in 30 minutes", "kind": "review" }
+      ],
+      "resources": [ "design URL shortener system design", "base62 encoding url shortener", "key generation service tinyurl" ]
+    },
+    {
+      "day": 40, "week": 6, "title": "Backtracking I", "track": "dsa", "hours": 2.5,
+      "summary": "Backtracking explores choices with choose-explore-unchoose. Subsets and permutations are the base templates.",
+      "tasks": [
+        { "text": "LeetCode 78 - Subsets (Medium)", "kind": "practice" },
+        { "text": "LeetCode 39 - Combination Sum (Medium)", "kind": "practice" },
+        { "text": "LeetCode 46 - Permutations (Medium)", "kind": "practice" },
+        { "text": "LeetCode 90 - Subsets II (Medium) - handling duplicates", "kind": "practice" }
+      ],
+      "resources": [ "backtracking template leetcode", "subsets permutations combinations pattern", "NeetCode backtracking playlist" ]
+    },
+    {
+      "day": 41, "week": 6, "title": "Angular Routing and Guards", "track": "angular", "hours": 2.5,
+      "summary": "Routing, lazy loading and guards are core for any enterprise Angular app. Functional guards and resolvers are the modern API.",
+      "tasks": [
+        { "text": "Learn route config, loadComponent/loadChildren lazy loading, withComponentInputBinding", "kind": "learn" },
+        { "text": "Learn functional guards canActivate/canMatch/canDeactivate and resolvers", "kind": "learn" },
+        { "text": "Build an auth guard and role guard protecting a lazy-loaded admin area", "kind": "build" },
+        { "text": "Add a preloading strategy and verify chunks in the network tab", "kind": "practice" }
+      ],
+      "resources": [ "Angular functional guards", "Angular lazy loading standalone routes", "Angular preloading strategy" ]
+    },
+    {
+      "day": 42, "week": 6, "title": "Week 6 Review", "track": "review", "hours": 2,
+      "summary": "Review heaps, backtracking and EF Core. Re-present the URL shortener without notes.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 215, 39 and 90 blind", "kind": "review" },
+        { "text": "Redraw the URL shortener design from memory in 20 minutes", "kind": "review" },
+        { "text": "List 5 EF Core performance pitfalls and their fixes", "kind": "review" }
+      ],
+      "resources": [ "EF Core common mistakes", "backtracking pattern summary" ]
+    },
+    {
+      "day": 43, "week": 7, "title": "Backtracking II", "track": "dsa", "hours": 3,
+      "summary": "Harder backtracking adds pruning and grid search. N-Queens is a well-known hard that rewards clean state tracking.",
+      "tasks": [
+        { "text": "LeetCode 40 - Combination Sum II (Medium)", "kind": "practice" },
+        { "text": "LeetCode 79 - Word Search (Medium)", "kind": "practice" },
+        { "text": "LeetCode 131 - Palindrome Partitioning (Medium)", "kind": "practice" },
+        { "text": "LeetCode 51 - N-Queens (Hard)", "kind": "practice" }
+      ],
+      "resources": [ "word search backtracking grid", "N-Queens backtracking explanation", "backtracking pruning techniques" ]
+    },
+    {
+      "day": 44, "week": 7, "title": "ASP.NET Core Pipeline and DI", "track": "dotnet", "hours": 3,
+      "summary": "Middleware order, DI lifetimes and the options pattern are standard ASP.NET Core questions. Captive dependencies are a common trap.",
+      "tasks": [
+        { "text": "Learn request pipeline, middleware order, Use/Run/Map, filters vs middleware", "kind": "learn" },
+        { "text": "Learn DI lifetimes, captive dependency, keyed services, IOptions/IOptionsSnapshot/IOptionsMonitor", "kind": "learn" },
+        { "text": "Build correlation-id middleware and a global IExceptionHandler returning ProblemDetails", "kind": "build" },
+        { "text": "Write answers: what happens when a scoped service is injected into a singleton", "kind": "review" }
+      ],
+      "resources": [ "ASP.NET Core middleware order", "ASP.NET Core DI lifetimes captive dependency", "IExceptionHandler ProblemDetails .NET 8" ]
+    },
+    {
+      "day": 45, "week": 7, "title": "Query Plans and Optimization", "track": "database", "hours": 2.5,
+      "summary": "Reading execution plans proves you can debug slow queries in production. Know seeks vs scans, key lookups and parameter sniffing.",
+      "tasks": [
+        { "text": "Learn to read SQL Server execution plans and Postgres EXPLAIN (ANALYZE, BUFFERS)", "kind": "learn" },
+        { "text": "Learn seeks vs scans, key lookups, SARGability, statistics and parameter sniffing", "kind": "learn" },
+        { "text": "Optimize 3 slow queries on your 1M-row dataset and record before/after timings", "kind": "practice" },
+        { "text": "Learn keyset vs offset pagination and rewrite an OFFSET query as keyset", "kind": "practice" }
+      ],
+      "resources": [ "how to read SQL Server execution plan", "Postgres EXPLAIN ANALYZE explained", "keyset pagination vs offset" ]
+    },
+    {
+      "day": 46, "week": 7, "title": "Design: Rate Limiter", "track": "sysdesign", "hours": 3,
+      "summary": "Rate limiters test algorithm knowledge plus distributed state. You can tie it to ASP.NET Core rate limiting and Redis.",
+      "tasks": [
+        { "text": "Learn token bucket, leaky bucket, fixed window, sliding window log and counter", "kind": "learn" },
+        { "text": "Design a distributed rate limiter: Redis + Lua, placement at gateway, headers, failure mode", "kind": "practice" },
+        { "text": "Build a sliding-window rate limiter in .NET with StackExchange.Redis and a Lua script", "kind": "build" },
+        { "text": "Compare with built-in ASP.NET Core RateLimiter middleware policies", "kind": "learn" }
+      ],
+      "resources": [ "design rate limiter system design", "token bucket vs sliding window", "ASP.NET Core rate limiting middleware" ]
+    },
+    {
+      "day": 47, "week": 7, "title": "Graphs I: Traversal", "track": "dsa", "hours": 2.5,
+      "summary": "Grid and adjacency-list traversal with DFS/BFS solves a large share of graph questions. Multi-source BFS is a must-know.",
+      "tasks": [
+        { "text": "LeetCode 200 - Number of Islands (Medium)", "kind": "practice" },
+        { "text": "LeetCode 133 - Clone Graph (Medium)", "kind": "practice" },
+        { "text": "LeetCode 695 - Max Area of Island (Medium)", "kind": "practice" },
+        { "text": "LeetCode 994 - Rotting Oranges (Medium) - multi-source BFS", "kind": "practice" }
+      ],
+      "resources": [ "graph BFS DFS grid problems", "multi source BFS", "NeetCode graphs playlist" ]
+    },
+    {
+      "day": 48, "week": 7, "title": "Server vs Client Components", "track": "nextjs", "hours": 2.5,
+      "summary": "React Server Components change where code runs and what ships to the browser. Interviewers test the use client boundary and composition.",
+      "tasks": [
+        { "text": "Learn the RSC model, use client boundary, serializable props, server-only package", "kind": "learn" },
+        { "text": "Learn composition: passing server components as children into client components", "kind": "learn" },
+        { "text": "Build a product page with server-fetched data and a client-side add-to-cart button", "kind": "build" },
+        { "text": "Write notes: what ends up in the JS bundle vs the RSC payload", "kind": "review" }
+      ],
+      "resources": [ "React server components explained", "Next.js server and client components composition", "RSC payload explained" ]
+    },
+    {
+      "day": 49, "week": 7, "title": "Week 7 Review", "track": "review", "hours": 2,
+      "summary": "Review backtracking, graphs and the ASP.NET Core pipeline. Rehearse the rate limiter design.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 79, 200 and 994 blind", "kind": "review" },
+        { "text": "Explain middleware order and DI lifetimes out loud", "kind": "review" },
+        { "text": "Redraw the rate limiter design and compare algorithms in a table", "kind": "review" }
+      ],
+      "resources": [ "rate limiter algorithms comparison", "graph traversal cheat sheet" ]
+    },
+    {
+      "day": 50, "week": 8, "title": "Graphs II: Topological Sort", "track": "dsa", "hours": 2.5,
+      "summary": "Topological sort detects cycles and orders dependencies. Kahn's algorithm and DFS coloring both matter.",
+      "tasks": [
+        { "text": "LeetCode 207 - Course Schedule (Medium)", "kind": "practice" },
+        { "text": "LeetCode 210 - Course Schedule II (Medium) - Kahn's algorithm", "kind": "practice" },
+        { "text": "LeetCode 417 - Pacific Atlantic Water Flow (Medium)", "kind": "practice" },
+        { "text": "LeetCode 130 - Surrounded Regions (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "topological sort Kahn algorithm", "course schedule cycle detection", "Pacific Atlantic water flow explanation" ]
+    },
+    {
+      "day": 51, "week": 8, "title": "Authentication and Authorization", "track": "dotnet", "hours": 3,
+      "summary": "Security questions are common in senior loops: JWT vs cookies, OAuth2/OIDC flows and policy-based authorization.",
+      "tasks": [
+        { "text": "Learn JWT structure, signing, refresh tokens, cookies vs tokens, OAuth2/OIDC auth code + PKCE", "kind": "learn" },
+        { "text": "Learn policy, claims and resource-based authorization in ASP.NET Core", "kind": "learn" },
+        { "text": "Build JWT auth with refresh token rotation and a custom policy in a minimal API", "kind": "build" },
+        { "text": "Review CORS, CSRF, security headers and OWASP Top 10 basics", "kind": "learn" }
+      ],
+      "resources": [ "OAuth2 OIDC authorization code PKCE explained", "ASP.NET Core policy based authorization", "JWT refresh token rotation .NET" ]
+    },
+    {
+      "day": 52, "week": 8, "title": "Angular Reactive Forms", "track": "angular", "hours": 2.5,
+      "summary": "Forms are the bread and butter of enterprise Angular. Typed reactive forms, custom validators and ControlValueAccessor show depth.",
+      "tasks": [
+        { "text": "Learn reactive vs template-driven forms, typed FormGroup/FormArray, NonNullableFormBuilder", "kind": "learn" },
+        { "text": "Learn custom sync/async validators and cross-field validation", "kind": "learn" },
+        { "text": "Build a multi-step form with FormArray, async username validator and summary step", "kind": "build" },
+        { "text": "Build a reusable rating input implementing ControlValueAccessor", "kind": "build" }
+      ],
+      "resources": [ "Angular typed reactive forms", "Angular ControlValueAccessor tutorial", "Angular async validator" ]
+    },
+    {
+      "day": 53, "week": 8, "title": "Consistency and Distributed Systems", "track": "sysdesign", "hours": 2.5,
+      "summary": "Senior design rounds probe tradeoffs: CAP/PACELC, quorum and distributed transactions. Saga vs 2PC is a frequent question.",
+      "tasks": [
+        { "text": "Learn CAP, PACELC, strong vs eventual vs causal consistency, read-your-writes", "kind": "learn" },
+        { "text": "Learn quorum reads/writes, leader election and Raft at a high level", "kind": "learn" },
+        { "text": "Compare 2PC vs Saga (choreography and orchestration) with compensation examples", "kind": "learn" },
+        { "text": "Write how your outbox-based system achieves eventual consistency, with failure cases", "kind": "practice" }
+      ],
+      "resources": [ "CAP theorem PACELC explained", "Raft consensus visualization", "saga pattern vs two phase commit" ]
+    },
+    {
+      "day": 54, "week": 8, "title": "Leadership and Team Lead Stories", "track": "behavioral", "hours": 2,
+      "summary": "Leading a 5-person team is your differentiator. Prepare concrete stories with numbers that show ownership and growing others.",
+      "tasks": [
+        { "text": "Write STAR: mentoring a junior engineer to independence", "kind": "practice" },
+        { "text": "Write STAR: handling underperformance or a difficult teammate", "kind": "practice" },
+        { "text": "Write STAR: pushing back on scope or deadline with stakeholders", "kind": "practice" },
+        { "text": "Write STAR: driving an architecture decision (e.g. outbox/CQRS) and its measured outcome", "kind": "practice" }
+      ],
+      "resources": [ "tech lead behavioral interview questions", "senior engineer leadership STAR examples", "Amazon leadership principles examples" ]
+    },
+    {
+      "day": 55, "week": 8, "title": "Timed Mock 1", "track": "dsa", "hours": 2.5,
+      "summary": "Timed practice exposes gaps that untimed solving hides. Talk through your approach as if an interviewer is listening.",
+      "tasks": [
+        { "text": "Timed 25 min: LeetCode 424 - Longest Repeating Character Replacement (Medium)", "kind": "practice" },
+        { "text": "Timed 25 min: LeetCode 153 - Find Minimum in Rotated Sorted Array (Medium)", "kind": "practice" },
+        { "text": "Timed 25 min: LeetCode 236 - Lowest Common Ancestor of a Binary Tree (Medium)", "kind": "practice" },
+        { "text": "Self-grade communication, correctness and complexity; log every mistake", "kind": "review" }
+      ],
+      "resources": [ "how to think out loud coding interview", "coding interview rubric", "mock coding interview tips" ]
+    },
+    {
+      "day": 56, "week": 8, "title": "Week 8 Review and Midpoint Check", "track": "review", "hours": 2,
+      "summary": "Halfway through Phase 2-3. Measure progress and rebalance time toward weak tracks.",
+      "tasks": [
+        { "text": "Re-solve every problem marked failed in your mistake log so far", "kind": "review" },
+        { "text": "Rate yourself 1-5 on each track and adjust upcoming review-day focus", "kind": "review" },
+        { "text": "Tell two leadership stories out loud with a timer, 2 minutes each", "kind": "review" }
+      ],
+      "resources": [ "interview prep progress self assessment", "NeetCode 150 roadmap" ]
+    },
+    {
+      "day": 57, "week": 9, "title": "Graphs III: Union-Find and Dijkstra", "track": "dsa", "hours": 3,
+      "summary": "Union-find handles connectivity efficiently and Dijkstra handles weighted shortest paths. Both appear in senior coding rounds.",
+      "tasks": [
+        { "text": "LeetCode 684 - Redundant Connection (Medium) - union-find with path compression", "kind": "practice" },
+        { "text": "LeetCode 547 - Number of Provinces (Medium)", "kind": "practice" },
+        { "text": "LeetCode 743 - Network Delay Time (Medium) - Dijkstra with PriorityQueue", "kind": "practice" },
+        { "text": "LeetCode 127 - Word Ladder (Hard)", "kind": "practice" }
+      ],
+      "resources": [ "union find path compression union by rank", "Dijkstra algorithm explained", "Word ladder BFS explanation" ]
+    },
+    {
+      "day": 58, "week": 9, "title": "Dapper and Minimal APIs", "track": "dotnet", "hours": 2.5,
+      "summary": "Many teams pair EF Core for writes with Dapper for reads. Minimal APIs are now the default for lean services.",
+      "tasks": [
+        { "text": "Learn Dapper multi-mapping, QueryMultiple, parameters, and EF Core vs Dapper tradeoffs", "kind": "learn" },
+        { "text": "Learn minimal API route groups, endpoint filters, TypedResults and validation", "kind": "learn" },
+        { "text": "Build a CQRS-lite service: writes via EF Core, read endpoints via Dapper in minimal APIs", "kind": "build" },
+        { "text": "Add OpenAPI docs and an endpoint filter for request validation", "kind": "practice" }
+      ],
+      "resources": [ "Dapper tutorial multi mapping", "ASP.NET Core minimal APIs route groups filters", "EF Core vs Dapper performance" ]
+    },
+    {
+      "day": 59, "week": 9, "title": "Next.js Rendering Strategies", "track": "nextjs", "hours": 2.5,
+      "summary": "Choosing SSR, SSG, ISR or CSR is a frequent Next.js interview topic. Know static vs dynamic rendering triggers.",
+      "tasks": [
+        { "text": "Learn CSR vs SSR vs SSG vs ISR, static vs dynamic rendering and what opts a route into dynamic", "kind": "learn" },
+        { "text": "Learn generateStaticParams, revalidate, hydration and Partial Prerendering basics", "kind": "learn" },
+        { "text": "Build a blog with SSG pages, ISR revalidate 60 and on-demand revalidatePath", "kind": "build" },
+        { "text": "Check build output symbols to confirm static vs dynamic routes", "kind": "practice" }
+      ],
+      "resources": [ "Next.js rendering SSR SSG ISR explained", "Next.js generateStaticParams", "Next.js partial prerendering" ]
+    },
+    {
+      "day": 60, "week": 9, "title": "Design: Chat System", "track": "sysdesign", "hours": 3,
+      "summary": "Chat design tests real-time connections, message ordering and storage at scale. Your SignalR knowledge helps here.",
+      "tasks": [
+        { "text": "Compare WebSockets, SSE and long polling; design connection gateway and presence service", "kind": "learn" },
+        { "text": "Design message storage (wide-column, partition by conversation), ordering and IDs", "kind": "practice" },
+        { "text": "Design group fan-out, delivery/read receipts, offline push and multi-device sync", "kind": "practice" },
+        { "text": "Present the full chat design out loud in 40 minutes and note weak spots", "kind": "review" }
+      ],
+      "resources": [ "design WhatsApp system design", "chat system design websocket", "Snowflake ID generation" ]
+    },
+    {
+      "day": 61, "week": 9, "title": "Dynamic Programming 1D I", "track": "dsa", "hours": 2.5,
+      "summary": "DP starts with defining state and recurrence. Go from recursion to memoization to bottom-up tabulation.",
+      "tasks": [
+        { "text": "LeetCode 70 - Climbing Stairs (Easy)", "kind": "practice" },
+        { "text": "LeetCode 746 - Min Cost Climbing Stairs (Easy)", "kind": "practice" },
+        { "text": "LeetCode 198 - House Robber (Medium)", "kind": "practice" },
+        { "text": "LeetCode 213 - House Robber II (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "dynamic programming for beginners", "memoization vs tabulation", "NeetCode 1D DP playlist" ]
+    },
+    {
+      "day": 62, "week": 9, "title": "RxJS Essentials", "track": "angular", "hours": 3,
+      "summary": "RxJS is where Angular interviews get hard. Know the flattening operators and how to avoid leaks.",
+      "tasks": [
+        { "text": "Learn Observables vs Promises, Subject/BehaviorSubject/ReplaySubject, hot vs cold", "kind": "learn" },
+        { "text": "Learn switchMap vs mergeMap vs concatMap vs exhaustMap, combineLatest, forkJoin, catchError", "kind": "learn" },
+        { "text": "Build a typeahead search with debounceTime, distinctUntilChanged and switchMap", "kind": "build" },
+        { "text": "Fix leaks with takeUntilDestroyed and async pipe; write notes on shareReplay", "kind": "practice" }
+      ],
+      "resources": [ "RxJS switchMap mergeMap concatMap exhaustMap", "RxJS hot vs cold observables", "Angular takeUntilDestroyed" ]
+    },
+    {
+      "day": 63, "week": 9, "title": "Week 9 Review", "track": "review", "hours": 2,
+      "summary": "Review union-find, Dijkstra, 1D DP and RxJS operators. Retell the chat design.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 743, 213 and 684 blind", "kind": "review" },
+        { "text": "Explain the four RxJS flattening operators with a real use case each", "kind": "review" },
+        { "text": "Redraw the chat system design in 25 minutes", "kind": "review" }
+      ],
+      "resources": [ "RxJS operator decision tree", "DP patterns summary" ]
+    },
+    {
+      "day": 64, "week": 10, "title": "Dynamic Programming 1D II", "track": "dsa", "hours": 3,
+      "summary": "These mediums are among the most asked DP questions. Practice stating the state and transition before coding.",
+      "tasks": [
+        { "text": "LeetCode 5 - Longest Palindromic Substring (Medium)", "kind": "practice" },
+        { "text": "LeetCode 91 - Decode Ways (Medium)", "kind": "practice" },
+        { "text": "LeetCode 322 - Coin Change (Medium)", "kind": "practice" },
+        { "text": "LeetCode 300 - Longest Increasing Subsequence (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "coin change dynamic programming", "longest increasing subsequence n log n", "decode ways DP explanation" ]
+    },
+    {
+      "day": 65, "week": 10, "title": "Redis Deep Dive", "track": "database", "hours": 2.5,
+      "summary": "Redis is more than a cache: sorted sets, streams and locks show up in designs. Know persistence, eviction and clustering.",
+      "tasks": [
+        { "text": "Learn Redis data structures: strings, hashes, lists, sets, sorted sets, streams, HyperLogLog", "kind": "learn" },
+        { "text": "Learn RDB vs AOF persistence, eviction policies, Sentinel vs Cluster, hash slots", "kind": "learn" },
+        { "text": "Build a leaderboard API with sorted sets in .NET using StackExchange.Redis", "kind": "build" },
+        { "text": "Learn distributed locks (SET NX PX), Redlock caveats and fencing tokens", "kind": "learn" }
+      ],
+      "resources": [ "Redis data structures explained", "Redis cluster vs sentinel", "Redlock fencing token Martin Kleppmann" ]
+    },
+    {
+      "day": 66, "week": 10, "title": "Next.js Caching Layers", "track": "nextjs", "hours": 2.5,
+      "summary": "Next.js has four caching layers and their defaults changed in version 15. Explaining them clearly is a strong senior signal.",
+      "tasks": [
+        { "text": "Learn request memoization, data cache, full route cache and client router cache", "kind": "learn" },
+        { "text": "Learn fetch cache options, next.tags, revalidateTag, unstable_cache and the use cache directive", "kind": "learn" },
+        { "text": "Experiment: build pages showing each cache layer and invalidate with revalidateTag", "kind": "build" },
+        { "text": "Write a table of what each layer caches, where, and how to opt out", "kind": "review" }
+      ],
+      "resources": [ "Next.js caching explained", "Next.js 15 caching changes", "revalidateTag Next.js" ]
+    },
+    {
+      "day": 67, "week": 10, "title": "Design: News Feed", "track": "sysdesign", "hours": 2.5,
+      "summary": "News feed design is about fan-out tradeoffs and feed caching. The celebrity problem is the key deep dive.",
+      "tasks": [
+        { "text": "Gather requirements and estimate: 300M DAU, posts per day, feed reads per second", "kind": "practice" },
+        { "text": "Compare fan-out on write vs read and a hybrid for celebrity accounts", "kind": "learn" },
+        { "text": "Design feed cache in Redis, cursor pagination, ranking and media via CDN", "kind": "practice" },
+        { "text": "Present the design in 35 minutes and list 3 bottlenecks with mitigations", "kind": "review" }
+      ],
+      "resources": [ "design news feed system design", "fan out on write vs fan out on read", "Twitter timeline architecture" ]
+    },
+    {
+      "day": 68, "week": 10, "title": "Intervals", "track": "dsa", "hours": 2.5,
+      "summary": "Interval problems are solved by sorting by start or end and sweeping. They are common in scheduling questions.",
+      "tasks": [
+        { "text": "LeetCode 57 - Insert Interval (Medium)", "kind": "practice" },
+        { "text": "LeetCode 56 - Merge Intervals (Medium)", "kind": "practice" },
+        { "text": "LeetCode 435 - Non-overlapping Intervals (Medium)", "kind": "practice" },
+        { "text": "LeetCode 986 - Interval List Intersections (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "merge intervals pattern", "interval scheduling greedy", "NeetCode intervals playlist" ]
+    },
+    {
+      "day": 69, "week": 10, "title": "SignalR and Background Services", "track": "dotnet", "hours": 3,
+      "summary": "Real-time features and background processing are common in .NET systems. Know hosted services, scale-out and graceful shutdown.",
+      "tasks": [
+        { "text": "Learn SignalR hubs, groups, transports and scale-out with Redis backplane or Azure SignalR", "kind": "learn" },
+        { "text": "Learn IHostedService vs BackgroundService, scoped services in workers, graceful shutdown", "kind": "learn" },
+        { "text": "Build a BackgroundService consuming a Channel and pushing job progress via SignalR", "kind": "build" },
+        { "text": "Compare Hangfire, Quartz.NET and a queue-driven worker for scheduled jobs", "kind": "learn" }
+      ],
+      "resources": [ "SignalR tutorial ASP.NET Core 8", "BackgroundService scoped services .NET", "Hangfire vs Quartz.NET" ]
+    },
+    {
+      "day": 70, "week": 10, "title": "Week 10 Review", "track": "review", "hours": 2,
+      "summary": "Halfway point of the roadmap. Review DP, intervals, Redis and caching layers.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 322, 300 and 56 blind", "kind": "review" },
+        { "text": "Explain Next.js caching layers and Redis persistence out loud", "kind": "review" },
+        { "text": "Redraw the news feed design and compare with the chat design", "kind": "review" },
+        { "text": "Refresh your mistake log and pick 3 weak patterns for next week", "kind": "review" }
+      ],
+      "resources": [ "halfway interview prep checklist", "DP problem list by pattern" ]
+    },
+    {
+      "day": 71, "week": 11, "title": "Dynamic Programming 2D I", "track": "dsa", "hours": 3,
+      "summary": "2D DP models two changing indices such as grid positions or two strings. Draw the table before coding.",
+      "tasks": [
+        { "text": "LeetCode 62 - Unique Paths (Medium)", "kind": "practice" },
+        { "text": "LeetCode 1143 - Longest Common Subsequence (Medium)", "kind": "practice" },
+        { "text": "LeetCode 309 - Best Time to Buy and Sell Stock with Cooldown (Medium)", "kind": "practice" },
+        { "text": "LeetCode 518 - Coin Change II (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "2D dynamic programming grid", "longest common subsequence DP table", "NeetCode 2D DP playlist" ]
+    },
+    {
+      "day": 72, "week": 11, "title": "Resilience with Polly", "track": "dotnet", "hours": 2.5,
+      "summary": "Microservices fail partially, and seniors design for it. Know retries with jitter, circuit breakers, timeouts and IHttpClientFactory.",
+      "tasks": [
+        { "text": "Learn retry with exponential backoff and jitter, circuit breaker, timeout, bulkhead, fallback", "kind": "learn" },
+        { "text": "Learn IHttpClientFactory, socket exhaustion and typed clients", "kind": "learn" },
+        { "text": "Build a typed HttpClient with AddStandardResilienceHandler and a custom Polly v8 pipeline", "kind": "build" },
+        { "text": "Simulate a flaky downstream with a fault-injection endpoint and observe breaker states", "kind": "practice" }
+      ],
+      "resources": [ "Polly v8 resilience pipeline", "Microsoft.Extensions.Http.Resilience", "IHttpClientFactory socket exhaustion" ]
+    },
+    {
+      "day": 73, "week": 11, "title": "Change Detection and Signals", "track": "angular", "hours": 3,
+      "summary": "Change detection is the top advanced Angular topic. Signals and zoneless mode are the future and frequently asked about.",
+      "tasks": [
+        { "text": "Learn zone.js, Default vs OnPush, markForCheck, detectChanges and immutability", "kind": "learn" },
+        { "text": "Learn signals, computed, effect, linkedSignal, toSignal/toObservable and zoneless change detection", "kind": "learn" },
+        { "text": "Refactor a component tree to OnPush + signals and profile with Angular DevTools", "kind": "build" },
+        { "text": "Write notes: signals vs RxJS, when to use each", "kind": "review" }
+      ],
+      "resources": [ "Angular change detection OnPush explained", "Angular signals tutorial", "Angular zoneless change detection" ]
+    },
+    {
+      "day": 74, "week": 11, "title": "Kubernetes Core", "track": "devops", "hours": 3,
+      "summary": "Kubernetes is standard for microservice deployments at European scale-ups. Know the core objects and how traffic reaches a pod.",
+      "tasks": [
+        { "text": "Learn cluster architecture: control plane, kubelet, etcd, scheduler", "kind": "learn" },
+        { "text": "Learn pods, ReplicaSets, Deployments, Services (ClusterIP/NodePort/LoadBalancer), namespaces", "kind": "learn" },
+        { "text": "Build: deploy your .NET API to kind or minikube with a Deployment and Service", "kind": "build" },
+        { "text": "Practice kubectl: get, describe, logs, exec, port-forward, rollout status/undo", "kind": "practice" }
+      ],
+      "resources": [ "Kubernetes explained in 15 minutes", "Kubernetes deployment service tutorial", "kind kubernetes local cluster" ]
+    },
+    {
+      "day": 75, "week": 11, "title": "Design: Notification System", "track": "sysdesign", "hours": 2.5,
+      "summary": "Notification systems combine queues, templates, preferences and third-party providers. Reliability and dedup are the deep dives.",
+      "tasks": [
+        { "text": "Gather requirements: push/SMS/email, priorities, user preferences, rate limits", "kind": "practice" },
+        { "text": "Design notification service, priority queues per channel, provider workers and templates", "kind": "practice" },
+        { "text": "Deep dive: retries, dedup with idempotency keys, outbox, tracking delivery status", "kind": "learn" },
+        { "text": "Present the design in 35 minutes and write a short design doc", "kind": "review" }
+      ],
+      "resources": [ "design notification system", "notification service architecture", "transactional outbox pattern" ]
+    },
+    {
+      "day": 76, "week": 11, "title": "Server Actions and Mutations", "track": "nextjs", "hours": 2.5,
+      "summary": "Server actions replace many API routes for mutations. Interviewers ask about security, progressive enhancement and revalidation.",
+      "tasks": [
+        { "text": "Learn use server, form actions, progressive enhancement and route handlers vs server actions", "kind": "learn" },
+        { "text": "Learn useActionState, useFormStatus, useOptimistic and revalidation after mutations", "kind": "learn" },
+        { "text": "Build a todo CRUD with server actions, zod validation and optimistic updates", "kind": "build" },
+        { "text": "Write notes on server action security: auth checks, input validation, closures", "kind": "review" }
+      ],
+      "resources": [ "Next.js server actions tutorial", "useOptimistic React 19", "Next.js server actions security" ]
+    },
+    {
+      "day": 77, "week": 11, "title": "Week 11 Review", "track": "review", "hours": 2,
+      "summary": "Review 2D DP, Polly, change detection and Kubernetes basics.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 1143, 518 and 309 blind", "kind": "review" },
+        { "text": "Explain OnPush and signals out loud with an example", "kind": "review" },
+        { "text": "Draw how a request reaches a pod in Kubernetes from memory", "kind": "review" }
+      ],
+      "resources": [ "Kubernetes networking basics", "resilience patterns summary" ]
+    },
+    {
+      "day": 78, "week": 12, "title": "Dynamic Programming 2D II", "track": "dsa", "hours": 3,
+      "summary": "Edit distance and knapsack variants are the hardest commonly asked DP problems. Focus on the recurrence.",
+      "tasks": [
+        { "text": "LeetCode 494 - Target Sum (Medium)", "kind": "practice" },
+        { "text": "LeetCode 97 - Interleaving String (Medium)", "kind": "practice" },
+        { "text": "LeetCode 72 - Edit Distance (Medium)", "kind": "practice" },
+        { "text": "LeetCode 312 - Burst Balloons (Hard)", "kind": "practice" }
+      ],
+      "resources": [ "edit distance dynamic programming", "0/1 knapsack target sum", "burst balloons interval DP" ]
+    },
+    {
+      "day": 79, "week": 12, "title": "Testing: xUnit, Moq and Integration", "track": "dotnet", "hours": 3,
+      "summary": "Seniors are expected to set testing strategy for a team. Know unit vs integration tests and realistic test infrastructure.",
+      "tasks": [
+        { "text": "Learn test pyramid, xUnit fixtures/theories, Moq/NSubstitute, FluentAssertions", "kind": "learn" },
+        { "text": "Write unit tests for a MediatR-style handler with mocked repository and clock", "kind": "practice" },
+        { "text": "Build integration tests with WebApplicationFactory and Testcontainers Postgres", "kind": "build" },
+        { "text": "Write notes on test doubles (mock, stub, fake) and what not to mock", "kind": "review" }
+      ],
+      "resources": [ "xUnit Moq tutorial", "WebApplicationFactory integration tests .NET 8", "Testcontainers .NET" ]
+    },
+    {
+      "day": 80, "week": 12, "title": "Elasticsearch Essentials", "track": "database", "hours": 2.5,
+      "summary": "You use Elasticsearch in production, so expect deep questions. Know inverted indexes, analyzers, mappings and shards.",
+      "tasks": [
+        { "text": "Learn inverted index, analyzers/tokenizers, mappings, text vs keyword, BM25 relevance", "kind": "learn" },
+        { "text": "Learn shards, replicas, refresh interval, near-real-time search and cluster health", "kind": "learn" },
+        { "text": "Build: index products in ES (Docker), run bool queries, filters and aggregations from .NET", "kind": "build" },
+        { "text": "Write how to keep ES in sync with SQL (outbox/CDC) and handle reindexing with aliases", "kind": "review" }
+      ],
+      "resources": [ "Elasticsearch inverted index explained", "Elasticsearch analyzers mappings", "Elasticsearch index alias zero downtime reindex" ]
+    },
+    {
+      "day": 81, "week": 12, "title": "State Management with NgRx", "track": "angular", "hours": 2.5,
+      "summary": "Large Angular apps often use NgRx. Know the store, effects and selectors, plus when a lighter SignalStore is better.",
+      "tasks": [
+        { "text": "Learn store, actions, reducers, selectors, effects and entity adapter", "kind": "learn" },
+        { "text": "Build a products feature with NgRx store, effects for HTTP and memoized selectors", "kind": "build" },
+        { "text": "Rebuild the same feature with NgRx SignalStore and compare the code", "kind": "build" },
+        { "text": "Write notes: when NgRx is overkill vs services with signals", "kind": "review" }
+      ],
+      "resources": [ "NgRx tutorial store effects selectors", "NgRx SignalStore tutorial", "Angular state management comparison" ]
+    },
+    {
+      "day": 82, "week": 12, "title": "Design: Search and Typeahead", "track": "sysdesign", "hours": 2.5,
+      "summary": "Typeahead combines tries, top-k ranking and heavy caching under strict latency. It also links to your Elasticsearch experience.",
+      "tasks": [
+        { "text": "Gather requirements: latency under 100ms, top 10 suggestions, freshness, scale", "kind": "practice" },
+        { "text": "Design trie with cached top-k per node vs Elasticsearch completion suggester", "kind": "practice" },
+        { "text": "Design data collection pipeline, offline aggregation and browser/CDN caching", "kind": "practice" },
+        { "text": "Present the design and compare with a full-text search service design", "kind": "review" }
+      ],
+      "resources": [ "design typeahead autocomplete system", "Elasticsearch completion suggester", "search engine system design" ]
+    },
+    {
+      "day": 83, "week": 12, "title": "K8s Config, Secrets and Probes", "track": "devops", "hours": 2.5,
+      "summary": "Production readiness in Kubernetes means config, secrets, health probes, resource limits and ingress. These are common follow-up questions.",
+      "tasks": [
+        { "text": "Learn ConfigMaps, Secrets, env vs volume mounts, external secret stores", "kind": "learn" },
+        { "text": "Learn liveness, readiness and startup probes; resource requests vs limits", "kind": "learn" },
+        { "text": "Wire ASP.NET Core health checks to K8s probes and set requests/limits in your manifest", "kind": "build" },
+        { "text": "Install NGINX Ingress on kind and route two services by path", "kind": "build" }
+      ],
+      "resources": [ "Kubernetes liveness readiness probes", "Kubernetes ConfigMap Secret tutorial", "Kubernetes ingress nginx tutorial" ]
+    },
+    {
+      "day": 84, "week": 12, "title": "Week 12 Review", "track": "review", "hours": 2,
+      "summary": "End of Phase 3. Review DP, testing, Elasticsearch and NgRx, and reassess weak areas.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 72, 494 and one failed DP problem blind", "kind": "review" },
+        { "text": "Explain how Elasticsearch scores and shards data out loud", "kind": "review" },
+        { "text": "Write a Phase 3 retrospective and choose 3 focus areas for Phase 4", "kind": "review" }
+      ],
+      "resources": [ "Elasticsearch interview questions", "DP interview cheat sheet" ]
+    },
+    {
+      "day": 85, "week": 13, "title": "Greedy Algorithms", "track": "dsa", "hours": 2.5,
+      "summary": "Greedy works when a local choice is provably safe. Learn to justify the greedy choice out loud.",
+      "tasks": [
+        { "text": "LeetCode 53 - Maximum Subarray (Medium) - Kadane", "kind": "practice" },
+        { "text": "LeetCode 55 - Jump Game (Medium)", "kind": "practice" },
+        { "text": "LeetCode 45 - Jump Game II (Medium)", "kind": "practice" },
+        { "text": "LeetCode 134 - Gas Station (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "greedy algorithm interview patterns", "Kadane algorithm explained", "jump game greedy" ]
+    },
+    {
+      "day": 86, "week": 13, "title": "Clean Architecture and MediatR", "track": "dotnet", "hours": 3,
+      "summary": "Architecture discussions are central for senior .NET roles. Be ready to defend clean architecture and its alternatives like vertical slices.",
+      "tasks": [
+        { "text": "Learn clean architecture layers, dependency rule, DDD building blocks (aggregates, value objects)", "kind": "learn" },
+        { "text": "Learn MediatR commands/queries and pipeline behaviors; compare with vertical slice architecture", "kind": "learn" },
+        { "text": "Build a clean architecture solution with MediatR, FluentValidation and logging behaviors", "kind": "build" },
+        { "text": "Write pros/cons of MediatR and when you would not use it", "kind": "review" }
+      ],
+      "resources": [ "clean architecture .NET 8", "MediatR pipeline behavior validation", "vertical slice architecture .NET" ]
+    },
+    {
+      "day": 87, "week": 13, "title": "CQRS, Event Sourcing and Outbox", "track": "sysdesign", "hours": 3,
+      "summary": "You have built CQRS and Outbox, so interviewers will dig deep. Prepare tradeoffs, failure modes and alternatives.",
+      "tasks": [
+        { "text": "Learn CQRS read models, projections, event sourcing, snapshots and event versioning", "kind": "learn" },
+        { "text": "Learn outbox/inbox patterns, CDC with Debezium and exactly-once processing illusions", "kind": "learn" },
+        { "text": "Compare saga choreography vs orchestration with an order/payment/inventory example", "kind": "practice" },
+        { "text": "Write a 1-page explanation of your production outbox: schema, relay, retries, ordering", "kind": "build" }
+      ],
+      "resources": [ "CQRS event sourcing explained", "transactional outbox Debezium CDC", "saga orchestration vs choreography" ]
+    },
+    {
+      "day": 88, "week": 13, "title": "Next.js Middleware and Auth", "track": "nextjs", "hours": 2.5,
+      "summary": "Auth in Next.js spans middleware, server components and server actions. Know the edge runtime limits and session strategies.",
+      "tasks": [
+        { "text": "Learn middleware.ts, matcher config, redirects/rewrites and edge runtime limitations", "kind": "learn" },
+        { "text": "Learn Auth.js sessions (JWT vs database), protecting RSC, route handlers and server actions", "kind": "learn" },
+        { "text": "Build login with Auth.js, middleware-protected routes and role checks in server actions", "kind": "build" },
+        { "text": "Write notes on why middleware alone is not enough for authorization", "kind": "review" }
+      ],
+      "resources": [ "Next.js middleware tutorial", "Auth.js Next.js App Router", "Next.js authentication best practices" ]
+    },
+    {
+      "day": 89, "week": 13, "title": "Bit Manipulation and Math", "track": "dsa", "hours": 2,
+      "summary": "Bit tricks appear in a few classic questions. Learn XOR properties and bit counting.",
+      "tasks": [
+        { "text": "LeetCode 136 - Single Number (Easy) - XOR", "kind": "practice" },
+        { "text": "LeetCode 338 - Counting Bits (Easy)", "kind": "practice" },
+        { "text": "LeetCode 268 - Missing Number (Easy)", "kind": "practice" },
+        { "text": "LeetCode 371 - Sum of Two Integers (Medium)", "kind": "practice" }
+      ],
+      "resources": [ "bit manipulation tricks for interviews", "XOR tricks leetcode", "NeetCode bit manipulation" ]
+    },
+    {
+      "day": 90, "week": 13, "title": "Helm and Autoscaling", "track": "devops", "hours": 2.5,
+      "summary": "Helm packages Kubernetes apps and HPA scales them. Expect questions on rolling updates and scaling signals.",
+      "tasks": [
+        { "text": "Learn HPA with metrics-server, VPA, cluster autoscaler and KEDA for queue-based scaling", "kind": "learn" },
+        { "text": "Learn Helm charts: templates, values, releases, upgrade and rollback", "kind": "learn" },
+        { "text": "Build a Helm chart for your API with configurable replicas, probes and an HPA", "kind": "build" },
+        { "text": "Load test with k6 or hey and watch the HPA scale pods", "kind": "practice" }
+      ],
+      "resources": [ "Kubernetes HPA tutorial", "Helm chart tutorial", "KEDA RabbitMQ scaler" ]
+    },
+    {
+      "day": 91, "week": 13, "title": "Week 13 Review", "track": "review", "hours": 2,
+      "summary": "Review greedy, clean architecture and CQRS/outbox. Your outbox story must be bulletproof.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 45, 134 and 371 blind", "kind": "review" },
+        { "text": "Explain your outbox design out loud in 5 minutes including failure cases", "kind": "review" },
+        { "text": "Summarize clean architecture vs vertical slices in a comparison table", "kind": "review" }
+      ],
+      "resources": [ "outbox pattern interview questions", "greedy vs dynamic programming" ]
+    },
+    {
+      "day": 92, "week": 14, "title": "Re-solve Sprint: Arrays to Stack Hards", "track": "dsa", "hours": 3,
+      "summary": "Revisit early patterns at hard difficulty. These classics are frequently asked at top companies.",
+      "tasks": [
+        { "text": "LeetCode 76 - Minimum Window Substring (Hard)", "kind": "practice" },
+        { "text": "LeetCode 42 - Trapping Rain Water (Hard)", "kind": "practice" },
+        { "text": "LeetCode 84 - Largest Rectangle in Histogram (Hard)", "kind": "practice" },
+        { "text": "Re-solve LeetCode 15 and 3 in under 15 minutes each", "kind": "review" }
+      ],
+      "resources": [ "minimum window substring explanation", "trapping rain water two pointers", "largest rectangle histogram monotonic stack" ]
+    },
+    {
+      "day": 93, "week": 14, "title": ".NET Performance Optimization", "track": "dotnet", "hours": 3,
+      "summary": "Senior engineers measure before optimizing. Know BenchmarkDotNet, allocation reduction and caching options in ASP.NET Core.",
+      "tasks": [
+        { "text": "Learn BenchmarkDotNet, MemoryDiagnoser and how to read allocations", "kind": "learn" },
+        { "text": "Benchmark string concat vs StringBuilder vs string.Create, and LINQ vs loops", "kind": "build" },
+        { "text": "Learn output caching, HybridCache, response compression and IAsyncEnumerable streaming", "kind": "learn" },
+        { "text": "Profile an endpoint with dotnet-trace and remove one hot-path allocation", "kind": "practice" }
+      ],
+      "resources": [ "BenchmarkDotNet tutorial", "HybridCache .NET 9", "ASP.NET Core performance best practices" ]
+    },
+    {
+      "day": 94, "week": 14, "title": "Design: Payment System", "track": "sysdesign", "hours": 3,
+      "summary": "Payment design tests correctness under failure: idempotency, ledgers and reconciliation. It is common at fintech-heavy European companies.",
+      "tasks": [
+        { "text": "Gather requirements: pay-in flow, PSP integration, refunds, currencies, compliance", "kind": "practice" },
+        { "text": "Design payment state machine, idempotency keys and double-entry ledger", "kind": "practice" },
+        { "text": "Deep dive: retries with PSP, webhooks, reconciliation jobs and outbox", "kind": "learn" },
+        { "text": "Present the design in 40 minutes and note PCI DSS boundaries", "kind": "review" }
+      ],
+      "resources": [ "design payment system", "double entry ledger system design", "idempotency keys Stripe" ]
+    },
+    {
+      "day": 95, "week": 14, "title": "Angular Performance and SSR", "track": "angular", "hours": 2.5,
+      "summary": "Performance and SSR are senior Angular topics. Know deferrable views, hydration and bundle optimization.",
+      "tasks": [
+        { "text": "Learn @for track, lazy loading, @defer blocks with triggers and bundle budgets", "kind": "learn" },
+        { "text": "Learn Angular SSR, hydration, event replay and incremental hydration", "kind": "learn" },
+        { "text": "Add SSR to your Angular app, use NgOptimizedImage and @defer for a heavy widget", "kind": "build" },
+        { "text": "Measure with Lighthouse and source-map-explorer before/after", "kind": "practice" }
+      ],
+      "resources": [ "Angular defer block tutorial", "Angular SSR hydration", "Angular performance optimization" ]
+    },
+    {
+      "day": 96, "week": 14, "title": "CI/CD with GitHub Actions", "track": "devops", "hours": 2.5,
+      "summary": "Owning the delivery pipeline is a senior responsibility. Know workflows, caching, secrets and environment approvals.",
+      "tasks": [
+        { "text": "Learn workflows, jobs, steps, matrix builds, caching, artifacts, reusable workflows", "kind": "learn" },
+        { "text": "Build a pipeline: restore, build, test .NET, publish coverage on every PR", "kind": "build" },
+        { "text": "Extend it: build and push Docker image to GHCR, deploy to staging with environment approval", "kind": "build" },
+        { "text": "Learn OIDC federation to AWS/Azure instead of long-lived secrets", "kind": "learn" }
+      ],
+      "resources": [ "GitHub Actions .NET CI tutorial", "GitHub Actions docker build push GHCR", "GitHub Actions OIDC AWS" ]
+    },
+    {
+      "day": 97, "week": 14, "title": "Postgres vs SQL Server and NoSQL", "track": "database", "hours": 2.5,
+      "summary": "Choosing a datastore is a core senior decision. Be ready to compare relational engines and NoSQL families with concrete reasons.",
+      "tasks": [
+        { "text": "Compare Postgres vs SQL Server: MVCC, JSONB, indexes, extensions, licensing, tooling", "kind": "learn" },
+        { "text": "Learn NoSQL families: key-value, document, wide-column, graph; when each fits", "kind": "learn" },
+        { "text": "Model the same order data in MongoDB and DynamoDB (single-table) and note access patterns", "kind": "practice" },
+        { "text": "Write a datastore decision table you can reuse in system design interviews", "kind": "review" }
+      ],
+      "resources": [ "Postgres vs SQL Server comparison", "SQL vs NoSQL when to use", "DynamoDB single table design" ]
+    },
+    {
+      "day": 98, "week": 14, "title": "Week 14 Review", "track": "review", "hours": 2,
+      "summary": "Review hard array problems, performance, payments and CI/CD.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 76 and 84 blind", "kind": "review" },
+        { "text": "Redraw the payment system design from memory in 25 minutes", "kind": "review" },
+        { "text": "Explain your CI/CD pipeline stages and deployment gates out loud", "kind": "review" }
+      ],
+      "resources": [ "payment system design review", "CI CD interview questions" ]
+    },
+    {
+      "day": 99, "week": 15, "title": "Hard Patterns: Heap and Graph", "track": "dsa", "hours": 3,
+      "summary": "Two heaps, k-way merge and Eulerian paths are hard patterns that show up in senior loops.",
+      "tasks": [
+        { "text": "LeetCode 295 - Find Median from Data Stream (Hard)", "kind": "practice" },
+        { "text": "LeetCode 23 - Merge k Sorted Lists (Hard)", "kind": "practice" },
+        { "text": "LeetCode 621 - Task Scheduler (Medium)", "kind": "practice" },
+        { "text": "LeetCode 332 - Reconstruct Itinerary (Hard)", "kind": "practice" }
+      ],
+      "resources": [ "find median data stream two heaps", "merge k sorted lists heap", "reconstruct itinerary Hierholzer" ]
+    },
+    {
+      "day": 100, "week": 15, "title": "Streaming, Suspense and Data Fetching", "track": "nextjs", "hours": 2.5,
+      "summary": "Streaming with Suspense improves perceived performance. Avoiding request waterfalls is a frequent deep-dive topic.",
+      "tasks": [
+        { "text": "Learn streaming with Suspense boundaries, loading.tsx and how chunks are flushed", "kind": "learn" },
+        { "text": "Learn parallel vs sequential fetching, waterfalls, preload pattern and React cache()", "kind": "learn" },
+        { "text": "Build a dashboard streaming 3 slow widgets independently with Suspense", "kind": "build" },
+        { "text": "Add TanStack Query on a client component and note when client fetching is still right", "kind": "practice" }
+      ],
+      "resources": [ "Next.js streaming Suspense tutorial", "Next.js data fetching patterns waterfalls", "TanStack Query with Next.js App Router" ]
+    },
+    {
+      "day": 101, "week": 15, "title": "Design: Ticketing System", "track": "sysdesign", "hours": 3,
+      "summary": "Ticketing systems test contention: many users fighting for few seats. Inventory holds, locking and waiting rooms are the deep dives.",
+      "tasks": [
+        { "text": "Gather requirements: browse events, reserve seats, pay within 10 minutes, flash sales", "kind": "practice" },
+        { "text": "Design seat inventory with temporary holds (TTL), optimistic locking vs distributed locks", "kind": "practice" },
+        { "text": "Design virtual waiting room, hot-event handling and search via Elasticsearch", "kind": "practice" },
+        { "text": "Present the design in 40 minutes and list failure scenarios", "kind": "review" }
+      ],
+      "resources": [ "design Ticketmaster system design", "seat reservation concurrency", "virtual waiting room architecture" ]
+    },
+    {
+      "day": 102, "week": 15, "title": "Terraform and AWS Basics", "track": "devops", "hours": 3,
+      "summary": "Infrastructure as code and cloud basics are expected for senior roles. Know core AWS services and Terraform workflow.",
+      "tasks": [
+        { "text": "Learn AWS core: VPC, subnets, IAM, EC2, ECS/EKS, RDS, S3, ALB, SQS/SNS", "kind": "learn" },
+        { "text": "Learn Terraform providers, resources, state, remote backend with locking, modules", "kind": "learn" },
+        { "text": "Build: Terraform an S3 bucket, SQS queue and IAM policy against LocalStack", "kind": "build" },
+        { "text": "Draw a reference AWS architecture for your .NET microservices", "kind": "practice" }
+      ],
+      "resources": [ "Terraform tutorial for beginners", "AWS core services explained", "LocalStack Terraform" ]
+    },
+    {
+      "day": 103, "week": 15, "title": "Distributed Messaging in .NET", "track": "dotnet", "hours": 3,
+      "summary": "MassTransit with RabbitMQ is common in .NET microservices. Show you know retries, outbox and saga state machines in code.",
+      "tasks": [
+        { "text": "Learn MassTransit consumers, topology on RabbitMQ, retry and redelivery policies", "kind": "learn" },
+        { "text": "Build two services exchanging events with MassTransit + RabbitMQ in docker compose", "kind": "build" },
+        { "text": "Add MassTransit EF Core outbox and an idempotent consumer with a processed-messages table", "kind": "build" },
+        { "text": "Learn MassTransit saga state machines and sketch an order saga", "kind": "learn" }
+      ],
+      "resources": [ "MassTransit RabbitMQ tutorial", "MassTransit transactional outbox", "MassTransit saga state machine" ]
+    },
+    {
+      "day": 104, "week": 15, "title": "Angular Testing", "track": "angular", "hours": 2.5,
+      "summary": "Testing shows maturity. Know TestBed, harnesses, HTTP testing and e2e options.",
+      "tasks": [
+        { "text": "Learn TestBed, component fixtures, Jest vs Karma/Vitest, testing signals", "kind": "learn" },
+        { "text": "Write component tests with Angular CDK harnesses and HttpTestingController", "kind": "practice" },
+        { "text": "Test an NgRx effect and a functional guard", "kind": "practice" },
+        { "text": "Build 2 Playwright e2e tests for the login and admin flows", "kind": "build" }
+      ],
+      "resources": [ "Angular testing tutorial TestBed", "Angular CDK component harness", "Playwright Angular e2e" ]
+    },
+    {
+      "day": 105, "week": 15, "title": "Week 15 Review", "track": "review", "hours": 2,
+      "summary": "Review hard heap/graph problems, ticketing design and messaging.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 295 and 23 blind", "kind": "review" },
+        { "text": "Redraw the ticketing design and explain seat locking options", "kind": "review" },
+        { "text": "Explain idempotent consumers and outbox in MassTransit out loud", "kind": "review" }
+      ],
+      "resources": [ "ticketing system design review", "heap problems summary" ]
+    },
+    {
+      "day": 106, "week": 16, "title": "Timed Mock 2", "track": "dsa", "hours": 2.5,
+      "summary": "A second timed mock mixing patterns from the whole roadmap. Practice identifying the pattern within 5 minutes.",
+      "tasks": [
+        { "text": "Timed 25 min: LeetCode 853 - Car Fleet (Medium)", "kind": "practice" },
+        { "text": "Timed 25 min: LeetCode 139 - Word Break (Medium)", "kind": "practice" },
+        { "text": "Timed 40 min: LeetCode 212 - Word Search II (Hard)", "kind": "practice" },
+        { "text": "Compare with Mock 1: time to pattern, bugs, communication; update mistake log", "kind": "review" }
+      ],
+      "resources": [ "Word search II trie backtracking", "word break DP explanation", "coding interview time management" ]
+    },
+    {
+      "day": 107, "week": 16, "title": "Observability", "track": "devops", "hours": 3,
+      "summary": "Seniors are expected to debug production systems. Know logs, metrics and traces, OpenTelemetry and SLOs.",
+      "tasks": [
+        { "text": "Learn the three pillars, structured logging, RED/USE metrics, SLI/SLO/error budgets", "kind": "learn" },
+        { "text": "Add OpenTelemetry tracing and metrics to two .NET services and export to Jaeger", "kind": "build" },
+        { "text": "Add Serilog structured logging with correlation IDs and ship to Seq or Loki", "kind": "build" },
+        { "text": "Build a Grafana dashboard with Prometheus metrics and one alert rule", "kind": "practice" }
+      ],
+      "resources": [ "OpenTelemetry .NET tutorial", "Serilog structured logging ASP.NET Core", "SLI SLO error budget explained" ]
+    },
+    {
+      "day": 108, "week": 16, "title": "Design: File Storage Service", "track": "sysdesign", "hours": 3,
+      "summary": "Dropbox/Google Drive design tests chunking, dedup, metadata and sync. Presigned URLs and conflict resolution are key details.",
+      "tasks": [
+        { "text": "Gather requirements: upload/download, sync across devices, sharing, versioning, 1B files", "kind": "practice" },
+        { "text": "Design chunking, content hashing for dedup, block store (S3) and metadata DB", "kind": "practice" },
+        { "text": "Design presigned URL uploads, sync notifications and conflict resolution", "kind": "practice" },
+        { "text": "Present the design in 40 minutes and write a short design doc", "kind": "review" }
+      ],
+      "resources": [ "design Dropbox system design", "S3 presigned URL upload", "file sync conflict resolution" ]
+    },
+    {
+      "day": 109, "week": 16, "title": "Next.js Performance, Testing and Deploy", "track": "nextjs", "hours": 3,
+      "summary": "Round out Next.js with Core Web Vitals, testing and deployment options beyond Vercel.",
+      "tasks": [
+        { "text": "Learn Core Web Vitals (LCP, INP, CLS), next/image, next/font, dynamic import, bundle analyzer", "kind": "learn" },
+        { "text": "Write component tests with Vitest + React Testing Library and one Playwright e2e test", "kind": "practice" },
+        { "text": "Build a standalone output Docker image for your Next.js app and run it behind NGINX", "kind": "build" },
+        { "text": "Compare Vercel vs self-hosted Docker/K8s: caching, ISR storage and edge features", "kind": "review" }
+      ],
+      "resources": [ "Next.js performance optimization", "Next.js standalone Docker", "Vitest React Testing Library Next.js" ]
+    },
+    {
+      "day": 110, "week": 16, "title": "Advanced C# and Rapid-fire", "track": "dotnet", "hours": 2.5,
+      "summary": "Modern C# features signal you keep current. Rapid-fire practice makes answers short and confident.",
+      "tasks": [
+        { "text": "Review pattern matching, records, required/init, primary constructors, collection expressions", "kind": "learn" },
+        { "text": "Review nullable reference types, source generators, IAsyncEnumerable, generic math", "kind": "learn" },
+        { "text": "Answer 30 rapid-fire .NET questions out loud in under 60 seconds each", "kind": "practice" },
+        { "text": "Write a one-page list of what is new in .NET 8 and .NET 9", "kind": "review" }
+      ],
+      "resources": [ "what is new in C# 12 13", "senior .NET interview questions", "what is new in .NET 9" ]
+    },
+    {
+      "day": 111, "week": 16, "title": "Resume Defense and Project Deep Dive", "track": "behavioral", "hours": 2.5,
+      "summary": "Every line on your resume is fair game. A rehearsed project deep dive is often the most important senior round.",
+      "tasks": [
+        { "text": "Prepare a 10-minute deep dive of your microservices/CQRS/Outbox system with a diagram", "kind": "build" },
+        { "text": "List numbers: traffic, latency, team size, incidents reduced, delivery speed", "kind": "practice" },
+        { "text": "Prepare answers: why this design, alternatives considered, what you would change", "kind": "practice" },
+        { "text": "Record yourself presenting and review clarity and pace", "kind": "review" }
+      ],
+      "resources": [ "project deep dive interview senior engineer", "how to present past project in interview", "resume defense interview" ]
+    },
+    {
+      "day": 112, "week": 16, "title": "Week 16 Review", "track": "review", "hours": 2,
+      "summary": "End of Phase 4. Consolidate observability, designs and the project deep dive.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 212 and one failed problem from Mock 2 blind", "kind": "review" },
+        { "text": "Redraw the file storage design in 25 minutes", "kind": "review" },
+        { "text": "Write a Phase 4 retrospective and list top 5 weak spots for the final phase", "kind": "review" }
+      ],
+      "resources": [ "final month interview prep plan", "system design review checklist" ]
+    },
+    {
+      "day": 113, "week": 17, "title": "Re-solve Sprint: Trees and Graphs", "track": "dsa", "hours": 3,
+      "summary": "Revisit trees and graphs under time pressure and add two new classics.",
+      "tasks": [
+        { "text": "LeetCode 297 - Serialize and Deserialize Binary Tree (Hard)", "kind": "practice" },
+        { "text": "LeetCode 1584 - Min Cost to Connect All Points (Medium) - Prim or Kruskal", "kind": "practice" },
+        { "text": "Re-solve LeetCode 207 and 200 in under 15 minutes each", "kind": "review" },
+        { "text": "Re-solve LeetCode 124 from memory and explain complexity", "kind": "review" }
+      ],
+      "resources": [ "serialize deserialize binary tree", "Prim vs Kruskal minimum spanning tree", "graph problems revision" ]
+    },
+    {
+      "day": 114, "week": 17, "title": "Deployment Strategies", "track": "devops", "hours": 2.5,
+      "summary": "Zero-downtime releases and safe rollbacks are senior concerns. Know deployment patterns and database migration strategies.",
+      "tasks": [
+        { "text": "Learn rolling, blue/green, canary, shadow deployments and feature flags", "kind": "learn" },
+        { "text": "Learn expand/contract database migrations and backward-compatible API changes", "kind": "learn" },
+        { "text": "Practice a K8s rolling update with maxSurge/maxUnavailable and a rollout undo", "kind": "practice" },
+        { "text": "Learn GitOps with Argo CD and canary with Argo Rollouts at a high level", "kind": "learn" }
+      ],
+      "resources": [ "blue green vs canary deployment", "expand contract database migration", "Argo CD GitOps explained" ]
+    },
+    {
+      "day": 115, "week": 17, "title": "Mock: Ride-Sharing Service", "track": "sysdesign", "hours": 3,
+      "summary": "Ride-sharing tests geospatial indexing, high-frequency location updates and matching. Run it as a timed self-mock.",
+      "tasks": [
+        { "text": "45-min self mock: design Uber with requirements, estimates and high-level design", "kind": "practice" },
+        { "text": "Deep dive: geohash vs quadtree, location update ingestion, driver matching", "kind": "learn" },
+        { "text": "Deep dive: trip state machine, surge pricing and payment handoff", "kind": "practice" },
+        { "text": "Score yourself against a rubric and note gaps", "kind": "review" }
+      ],
+      "resources": [ "design Uber system design", "geohash vs quadtree", "system design interview rubric" ]
+    },
+    {
+      "day": 116, "week": 17, "title": ".NET Mock Interview", "track": "dotnet", "hours": 2.5,
+      "summary": "Simulate a .NET technical interview end to end. Clear, concise answers matter as much as knowledge.",
+      "tasks": [
+        { "text": "Mock with a peer or record yourself: GC, async, DI lifetimes, EF pitfalls, middleware", "kind": "practice" },
+        { "text": "Live-code: fix a deadlocking async method and a captive dependency bug", "kind": "practice" },
+        { "text": "Explain how you would debug high CPU and memory growth in a production .NET service", "kind": "practice" },
+        { "text": "Write improved answers for the 3 weakest questions", "kind": "review" }
+      ],
+      "resources": [ ".NET mock interview senior", "debug high CPU .NET production", "C# tricky interview questions" ]
+    },
+    {
+      "day": 117, "week": 17, "title": "Re-solve Sprint: Dynamic Programming", "track": "dsa", "hours": 3,
+      "summary": "DP is the most forgettable pattern, so refresh it now. Add two new classics to cement the patterns.",
+      "tasks": [
+        { "text": "LeetCode 152 - Maximum Product Subarray (Medium)", "kind": "practice" },
+        { "text": "LeetCode 416 - Partition Equal Subset Sum (Medium)", "kind": "practice" },
+        { "text": "Re-solve LeetCode 322 and 1143 in under 20 minutes each", "kind": "review" },
+        { "text": "Re-solve LeetCode 72 and write the recurrence before coding", "kind": "review" }
+      ],
+      "resources": [ "DP patterns for coding interviews", "partition equal subset sum knapsack", "maximum product subarray" ]
+    },
+    {
+      "day": 118, "week": 17, "title": "Behavioral Mock and Reverse Questions", "track": "behavioral", "hours": 2,
+      "summary": "Practice behavioral answers live and prepare thoughtful questions for interviewers. Good questions signal seniority.",
+      "tasks": [
+        { "text": "Run a 45-min behavioral mock with a friend using 8 common senior questions", "kind": "practice" },
+        { "text": "Prepare answers: why leaving, why this company, biggest failure, disagreement with manager", "kind": "practice" },
+        { "text": "Write 10 reverse interview questions on team, on-call, tech debt, growth and remote culture", "kind": "build" },
+        { "text": "Refine weak stories based on mock feedback", "kind": "review" }
+      ],
+      "resources": [ "reverse interview questions github", "behavioral interview senior engineer questions", "why are you leaving your job answer" ]
+    },
+    {
+      "day": 119, "week": 17, "title": "Week 17 Review", "track": "review", "hours": 2,
+      "summary": "Review re-solve sprints, deployment strategies and mock feedback.",
+      "tasks": [
+        { "text": "Re-solve any problem that took over 25 minutes this week", "kind": "review" },
+        { "text": "Redraw the ride-sharing design focusing on the weakest part", "kind": "review" },
+        { "text": "Update the mock feedback log and plan next week focus", "kind": "review" }
+      ],
+      "resources": [ "how to learn from mock interviews", "interview feedback log template" ]
+    },
+    {
+      "day": 120, "week": 18, "title": "Timed Mock 3", "track": "dsa", "hours": 2.5,
+      "summary": "Third timed mock, now including a design-style coding problem. Aim for working code plus tests within time.",
+      "tasks": [
+        { "text": "Timed 30 min: LeetCode 146 - LRU Cache (Medium)", "kind": "practice" },
+        { "text": "Timed 20 min: LeetCode 763 - Partition Labels (Medium)", "kind": "practice" },
+        { "text": "Timed 40 min: LeetCode 329 - Longest Increasing Path in a Matrix (Hard)", "kind": "practice" },
+        { "text": "Compare with Mocks 1 and 2 and update the mistake log", "kind": "review" }
+      ],
+      "resources": [ "LRU cache implementation", "longest increasing path matrix DFS memo", "partition labels greedy" ]
+    },
+    {
+      "day": 121, "week": 18, "title": "Mock: Video Streaming Platform", "track": "sysdesign", "hours": 3,
+      "summary": "YouTube/Netflix design covers upload pipelines, transcoding and CDN delivery. Run it as a timed mock.",
+      "tasks": [
+        { "text": "45-min self mock: design YouTube upload and watch flows end to end", "kind": "practice" },
+        { "text": "Deep dive: chunked upload, transcoding pipeline with queues, adaptive bitrate HLS/DASH", "kind": "learn" },
+        { "text": "Deep dive: CDN strategy, metadata storage and view count aggregation", "kind": "practice" },
+        { "text": "Score yourself against the rubric and compare to previous mocks", "kind": "review" }
+      ],
+      "resources": [ "design YouTube system design", "video transcoding pipeline architecture", "HLS adaptive bitrate streaming" ]
+    },
+    {
+      "day": 122, "week": 18, "title": "Frontend Rapid-fire: React and Next.js", "track": "nextjs", "hours": 2.5,
+      "summary": "Full-stack roles include frontend questions. Drill short answers and a timed build.",
+      "tasks": [
+        { "text": "Answer 30 React/Next.js questions out loud: hydration, RSC payload, caching, keys, effects", "kind": "practice" },
+        { "text": "Debug a hydration mismatch and a client/server boundary error in a sample app", "kind": "practice" },
+        { "text": "Timed 45 min: build a paginated searchable list page with server component + client filter", "kind": "build" },
+        { "text": "Write a one-page Next.js cheat sheet", "kind": "review" }
+      ],
+      "resources": [ "React interview questions senior", "Next.js interview questions", "Next.js hydration error fix" ]
+    },
+    {
+      "day": 123, "week": 18, "title": "SQL Live Coding Drill", "track": "database", "hours": 2.5,
+      "summary": "Practice SQL under time pressure, especially window functions and self-joins.",
+      "tasks": [
+        { "text": "LeetCode SQL 178 - Rank Scores (Medium)", "kind": "practice" },
+        { "text": "LeetCode SQL 180 - Consecutive Numbers (Medium)", "kind": "practice" },
+        { "text": "LeetCode SQL 262 - Trips and Users (Hard)", "kind": "practice" },
+        { "text": "LeetCode SQL 1321 - Restaurant Growth (Medium) - moving average window", "kind": "practice" }
+      ],
+      "resources": [ "SQL interview questions window functions", "LeetCode SQL hard problems", "SQL moving average window function" ]
+    },
+    {
+      "day": 124, "week": 18, "title": "Mock: Distributed Job Scheduler", "track": "sysdesign", "hours": 3,
+      "summary": "A job scheduler tests leader election, partitioning and at-least-once execution. It connects to your background services experience.",
+      "tasks": [
+        { "text": "45-min self mock: design a distributed cron/job scheduler for 10M jobs per day", "kind": "practice" },
+        { "text": "Deep dive: partitioning jobs, leader election, visibility timeouts, retries and idempotency", "kind": "learn" },
+        { "text": "Deep dive: monitoring, priority queues and handling long-running jobs", "kind": "practice" },
+        { "text": "Score yourself and write the top 3 improvements", "kind": "review" }
+      ],
+      "resources": [ "design distributed job scheduler", "leader election distributed systems", "SQS visibility timeout explained" ]
+    },
+    {
+      "day": 125, "week": 18, "title": "Angular Rapid-fire and Code Review", "track": "angular", "hours": 2.5,
+      "summary": "Drill concise Angular answers and practice code review, which is common in senior frontend rounds.",
+      "tasks": [
+        { "text": "Answer 30 Angular questions out loud: DI, change detection, signals, RxJS, routing, forms", "kind": "practice" },
+        { "text": "Review a sample component for leaks, CD issues and anti-patterns; write review comments", "kind": "practice" },
+        { "text": "Explain signals vs RxJS and when to migrate an app to standalone and zoneless", "kind": "practice" },
+        { "text": "Write a one-page Angular cheat sheet", "kind": "review" }
+      ],
+      "resources": [ "Angular interview questions senior", "Angular code review checklist", "Angular signals vs RxJS" ]
+    },
+    {
+      "day": 126, "week": 18, "title": "Week 18 Review", "track": "review", "hours": 2,
+      "summary": "Review Mock 3, two designs and the frontend cheat sheets.",
+      "tasks": [
+        { "text": "Re-solve LeetCode 146 and 329 blind", "kind": "review" },
+        { "text": "Redraw the video streaming and job scheduler designs in 20 minutes each", "kind": "review" },
+        { "text": "Review all cheat sheets and mark items still unclear", "kind": "review" }
+      ],
+      "resources": [ "system design mock review", "final weeks interview preparation" ]
+    },
+    {
+      "day": 127, "week": 19, "title": "Full Loop: Coding Round", "track": "dsa", "hours": 2.5,
+      "summary": "Simulate real coding rounds with a stranger if possible. Focus on communication, testing and edge cases.",
+      "tasks": [
+        { "text": "Round 1 (45 min): random NeetCode 150 Medium on Pramp, interviewing.io or with a peer", "kind": "practice" },
+        { "text": "Round 2 (45 min): random NeetCode 150 Medium/Hard in CoderPad without autocomplete", "kind": "practice" },
+        { "text": "Write feedback: clarifying questions, approach, code quality, tests, complexity", "kind": "review" }
+      ],
+      "resources": [ "Pramp mock interview", "interviewing.io mock coding", "CoderPad interview tips" ]
+    },
+    {
+      "day": 128, "week": 19, "title": "Full Loop: E-commerce Checkout Design", "track": "sysdesign", "hours": 3,
+      "summary": "A 60-minute design round on familiar ground: cart, inventory, orders and payments with sagas and outbox.",
+      "tasks": [
+        { "text": "60-min mock: design an e-commerce checkout with cart, inventory, orders, payment", "kind": "practice" },
+        { "text": "Deep dive: order saga with compensation, outbox, inventory reservation and idempotency", "kind": "practice" },
+        { "text": "Deep dive: product search with Elasticsearch, caching and flash sale traffic", "kind": "practice" },
+        { "text": "Get feedback from a peer or score against the rubric", "kind": "review" }
+      ],
+      "resources": [ "design Amazon e-commerce system", "order saga pattern microservices", "flash sale system design" ]
+    },
+    {
+      "day": 129, "week": 19, "title": "Full Loop: Behavioral and Hiring Manager", "track": "behavioral", "hours": 2,
+      "summary": "Hiring manager rounds decide level. Present yourself as a senior engineer who leads, not only codes.",
+      "tasks": [
+        { "text": "Research 3 target companies: product, stack, values, engineering blog", "kind": "learn" },
+        { "text": "Polish a 2-minute tell me about yourself pitch aimed at senior/lead roles", "kind": "practice" },
+        { "text": "Run a 45-min mock answering 6 STAR questions with a timer", "kind": "practice" },
+        { "text": "Tailor reverse questions for each target company", "kind": "review" }
+      ],
+      "resources": [ "tell me about yourself senior engineer", "hiring manager interview questions", "how to research a company before interview" ]
+    },
+    {
+      "day": 130, "week": 19, "title": "Full Loop: .NET Live Build", "track": "dotnet", "hours": 3,
+      "summary": "Many European companies use take-home or live build rounds. Practice shipping a clean small service quickly.",
+      "tasks": [
+        { "text": "Timed 90 min: build a minimal API with EF Core, validation, error handling and tests", "kind": "build" },
+        { "text": "Add a Dockerfile and a README explaining design decisions and tradeoffs", "kind": "build" },
+        { "text": "Self-review the code as a senior reviewer and list 5 improvements", "kind": "review" }
+      ],
+      "resources": [ ".NET take home assignment tips", "live coding interview .NET", "clean minimal API example" ]
+    },
+    {
+      "day": 131, "week": 19, "title": "Weak-spot Patch: DSA", "track": "dsa", "hours": 2.5,
+      "summary": "Use your mistake log to target the weakest patterns. Focused repair is worth more than new problems now.",
+      "tasks": [
+        { "text": "Pick the 2 weakest patterns from your mistake log and re-read their templates", "kind": "learn" },
+        { "text": "Solve 2 new NeetCode 150 problems from the weakest pattern", "kind": "practice" },
+        { "text": "Solve 2 new NeetCode 150 problems from the second weakest pattern", "kind": "practice" },
+        { "text": "Re-solve the 3 most-failed problems from the log", "kind": "review" }
+      ],
+      "resources": [ "NeetCode 150 list", "coding interview patterns cheat sheet" ]
+    },
+    {
+      "day": 132, "week": 19, "title": "Weak-spot Patch: System Design", "track": "sysdesign", "hours": 2.5,
+      "summary": "Fix the parts of your designs that interviewers pushed on. Depth in one component beats breadth everywhere.",
+      "tasks": [
+        { "text": "Redo your weakest mock design from scratch in 40 minutes", "kind": "practice" },
+        { "text": "Deep dive one weak component (DB choice, caching, queues or consistency) with notes", "kind": "learn" },
+        { "text": "Drill 3 back-of-envelope estimations in under 5 minutes each", "kind": "practice" },
+        { "text": "Update your system design cheat sheet", "kind": "review" }
+      ],
+      "resources": [ "system design common mistakes", "back of envelope estimation practice", "system design cheat sheet" ]
+    },
+    {
+      "day": 133, "week": 19, "title": "Week 19 Review", "track": "review", "hours": 2,
+      "summary": "Review full loop feedback and confirm improvements on weak spots.",
+      "tasks": [
+        { "text": "Summarize feedback from all full loop mocks into one page", "kind": "review" },
+        { "text": "Re-solve 2 problems from this week's weak-spot list blind", "kind": "review" },
+        { "text": "Retell the project deep dive in 10 minutes", "kind": "review" }
+      ],
+      "resources": [ "interview feedback reflection", "last week before interview tips" ]
+    },
+    {
+      "day": 134, "week": 20, "title": "Final Timed Mock", "track": "dsa", "hours": 2.5,
+      "summary": "One last realistic coding session to confirm readiness. Stay calm and narrate your thinking.",
+      "tasks": [
+        { "text": "Timed 25 min: LeetCode 128 - Longest Consecutive Sequence (Medium)", "kind": "practice" },
+        { "text": "Timed 25 min: LeetCode 567 - Permutation in String (Medium)", "kind": "practice" },
+        { "text": "Timed 35 min: one random Hard from NeetCode 150 you have not solved", "kind": "practice" },
+        { "text": "Write final notes on your interview routine: clarify, examples, approach, code, test", "kind": "review" }
+      ],
+      "resources": [ "longest consecutive sequence explanation", "coding interview checklist", "permutation in string sliding window" ]
+    },
+    {
+      "day": 135, "week": 20, "title": "Final Mock: Collaborative Editor", "track": "sysdesign", "hours": 2.5,
+      "summary": "Google Docs design tests real-time collaboration and conflict resolution. A final chance to practice structure and timing.",
+      "tasks": [
+        { "text": "45-min mock: design Google Docs real-time collaborative editing", "kind": "practice" },
+        { "text": "Deep dive: OT vs CRDT, WebSocket sessions, presence and document storage/versioning", "kind": "learn" },
+        { "text": "Review all previous designs and write the 5 patterns you reuse most", "kind": "review" }
+      ],
+      "resources": [ "design Google Docs system design", "operational transformation vs CRDT", "collaborative editing architecture" ]
+    },
+    {
+      "day": 136, "week": 20, "title": "Final Polish: Stories and Negotiation", "track": "behavioral", "hours": 2,
+      "summary": "Finalize stories and prepare for offers. European and remote offers vary in salary, contracts and benefits.",
+      "tasks": [
+        { "text": "Polish your top 8 STAR stories into a single printable page", "kind": "review" },
+        { "text": "Research senior salary bands for target countries/remote on levels.fyi and Glassdoor", "kind": "learn" },
+        { "text": "Learn contract types (employment, EOR, B2B), relocation and notice period questions", "kind": "learn" },
+        { "text": "Write and rehearse a negotiation script for salary expectations and counteroffers", "kind": "practice" }
+      ],
+      "resources": [ "salary negotiation software engineer", "levels.fyi Europe senior engineer", "employer of record remote contract explained" ]
+    },
+    {
+      "day": 137, "week": 20, "title": "Final Cheat Sheets", "track": "dotnet", "hours": 2,
+      "summary": "Condense everything into cheat sheets you can skim before interviews. Writing them is itself a final review.",
+      "tasks": [
+        { "text": "Write a one-page .NET cheat sheet: async, GC, DI, EF Core, ASP.NET Core, testing", "kind": "review" },
+        { "text": "Write a one-page database and DevOps cheat sheet: indexes, isolation, Redis, K8s, CI/CD", "kind": "review" },
+        { "text": "Skim the Angular and Next.js cheat sheets and fix any gaps", "kind": "review" }
+      ],
+      "resources": [ ".NET interview cheat sheet", "Kubernetes cheat sheet", "SQL indexing cheat sheet" ]
+    },
+    {
+      "day": 138, "week": 20, "title": "Light Practice: Confidence Set", "track": "dsa", "hours": 1.5,
+      "summary": "Keep skills warm without burning out. Solve problems you know well to build confidence.",
+      "tasks": [
+        { "text": "Re-solve 5 favorite problems from different patterns in under 15 minutes each", "kind": "review" },
+        { "text": "Pattern flash drill: read 20 problem titles and name the pattern in 10 seconds each", "kind": "practice" },
+        { "text": "Review your interview routine notes and complexity cheat sheet", "kind": "review" }
+      ],
+      "resources": [ "big O cheat sheet", "coding interview patterns recognition" ]
+    },
+    {
+      "day": 139, "week": 20, "title": "Interview Logistics and Setup", "track": "behavioral", "hours": 1.5,
+      "summary": "Remove avoidable stress. Test your setup and prepare everything you need for interview day.",
+      "tasks": [
+        { "text": "Test camera, mic, lighting, internet and screen sharing; close notifications", "kind": "practice" },
+        { "text": "Practice in CoderPad, HackerRank and an online whiteboard (Excalidraw/Miro)", "kind": "practice" },
+        { "text": "Prepare interview day kit: resume, story sheet, reverse questions, water, schedule", "kind": "review" }
+      ],
+      "resources": [ "remote interview setup tips", "Excalidraw system design interview" ]
+    },
+    {
+      "day": 140, "week": 20, "title": "Rest Day Before Interview", "track": "review", "hours": 0.5,
+      "summary": "Rest is part of preparation. A rested brain performs far better than one cramming the night before.",
+      "tasks": [
+        { "text": "Skim your story sheet and cheat sheets for 20 minutes, then stop studying", "kind": "review" },
+        { "text": "Take a walk, exercise lightly and sleep at least 8 hours", "kind": "review" }
+      ],
+      "resources": [ "how to relax before a job interview", "sleep and cognitive performance" ]
+    }
+  ]
+}

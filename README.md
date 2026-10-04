@@ -1,36 +1,50 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Senior Engineer Roadmap
 
-## Getting Started
+A 20-week (140-day) senior software engineer interview prep tracker built with **Next.js (App Router) + Tailwind CSS + Neon Postgres**, designed to deploy on **Vercel**.
 
-First, run the development server:
+Covers DSA (LeetCode), system design, .NET (basic to advanced), Next.js, Angular, DevOps (Docker, Kubernetes, CI/CD), databases and behavioral prep, at 2-3 hours a day.
+
+## How saving works (local-first)
+
+- Every tick, note and the start date is saved **in your browser immediately**, so the app works with no database at all.
+- The **Sync** button sends your changes to `/api/sync`, which stores them in Neon and returns the latest data. For each item the newest edit wins, so home and office merge cleanly.
+- Sync also runs automatically after edits, when you return to the tab, and once a minute while the tab is visible.
+- Sync is protected by a passcode (`SYNC_PASSCODE`). You enter it once per browser.
+
+## Setup
+
+1. **Neon:** create a project at <https://neon.tech>, then **Connect** -> keep *Pooled connection* on -> copy the connection string.
+2. **Tables:** Neon **SQL Editor** -> paste [`neon/schema.sql`](neon/schema.sql) -> Run.
+3. **Env vars:** copy `.env.example` to `.env.local` and fill in `DATABASE_URL` and `SYNC_PASSCODE`.
+4. Run it:
 
 ```bash
+npm install
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open <http://localhost:3000>, pick your Day 1, press **Sync** and enter your passcode.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy to Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Push this folder to a GitHub repository.
+2. In Vercel: **Add New -> Project**, import the repo (framework: Next.js, no extra settings).
+3. Add `DATABASE_URL` and `SYNC_PASSCODE` under **Settings -> Environment Variables** (or use the Neon integration from the Vercel Marketplace, which adds `DATABASE_URL` for you), then deploy.
+4. On each device (home, office), open the site, press **Sync**, and enter the passcode.
 
-## Learn More
+## How it works
 
-To learn more about Next.js, take a look at the following resources:
+| Piece | Where |
+| --- | --- |
+| Roadmap content (140 days, tasks, resources) | `src/data/roadmap.json` |
+| Task ids | `d{day}-t{index}`, so keep task order stable if you edit the JSON |
+| Local store + merge logic | `src/components/ProgressProvider.tsx` |
+| Server sync endpoint (Neon) | `src/app/api/sync/route.ts` |
+| Tables | `neon/schema.sql` (`task_progress`, `day_notes`, `settings`) |
+| Dashboard stats | `src/lib/stats.ts` |
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+Pages: `/` dashboard, `/today` jumps to the current day, `/roadmap` all weeks with search and topic filters, `/day/[n]` tasks, resources and notes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+To change the plan, edit `src/data/roadmap.json`. Adding tasks to the end of a day is safe; reordering tasks changes which ticks map to which task.
 
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+> Merge uses each device's clock to decide which edit is newest, so keep your devices' clocks roughly correct.
